@@ -1,0 +1,12 @@
+# KiCad local editor state
+*.kicad_prl
+~*.kicad_sch.lck
+~*.kicad_pcb.lck
+~*.kicad_pro.lck
+fp-info-cache
+sym-lib-table
+fp-lib-table
+
+# macOS and editor history
+.DS_Store
+.history/
