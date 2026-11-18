@@ -5,655 +5,392 @@
 	(uuid "e3518469-2023-4ad5-b1bd-81745f6fca11")
 	(paper "A4")
 	(title_block
-		(title "BionX Power Control PCB")
-		(date "2026-11-03")
-		(rev "0.1")
-		(company "BionX Hardware")
-		(comment 1 "Starter architecture; electrical details require confirmation")
+		(title "BionX Power Control | Architecture")
+		(rev "0.3")
 	)
-	(lib_symbols
-(symbol "Power_Management:LM5069MM-1"
+	(lib_symbols)
+	(text "BIONX / POWER CONTROL"
 		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(duplicate_pin_numbers_are_jumpers no)
-		(property "Reference" "U"
-			(at -7.62 -11.43 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "LM5069MM-1"
-			(at 1.27 -11.43 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Package_SO:MSOP-10_3x3mm_P0.5mm"
-			(at 1.27 -21.844 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(hide yes)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" "http://www.ti.com/lit/ds/symlink/lm5069.pdf"
-			(at -0.508 -25.146 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(hide yes)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Hot swap & Inrush current controller with power limiting, latch off on fault, 9V to 80Vin, UVLO & OVLO, VSSOP-10"
-			(at 0.762 -23.368 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(hide yes)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "ki_keywords" "high-voltage mosfet-driver efuse"
-			(at 0 0 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(hide yes)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "ki_fp_filters" "MSOP*3x3mm*P0.5mm*"
-			(at 0 0 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(hide yes)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(symbol "LM5069MM-1_0_1"
-			(rectangle
-				(start -10.16 7.62)
-				(end 10.16 -10.16)
-				(stroke
-					(width 0.254)
-					(type default)
-				)
-				(fill
-					(type background)
-				)
-			)
-		)
-		(symbol "LM5069MM-1_1_0"
-			(pin input line
-				(at 12.7 -7.62 180)
-				(length 2.54)
-				(name "TIMER"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-				(number "6"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-			)
-		)
-		(symbol "LM5069MM-1_1_1"
-			(pin input line
-				(at -2.54 10.16 270)
-				(length 2.54)
-				(name "SENSE"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-				(number "1"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-			)
-			(pin power_in line
-				(at -7.62 10.16 270)
-				(length 2.54)
-				(name "VIN"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-				(number "2"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-			)
-			(pin input line
-				(at -12.7 -7.62 0)
-				(length 2.54)
-				(name "UVLO"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-				(number "3"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-			)
-			(pin input line
-				(at -12.7 -2.54 0)
-				(length 2.54)
-				(name "OVLO"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-				(number "4"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-			)
-			(pin power_in line
-				(at 0 -12.7 90)
-				(length 2.54)
-				(name "GND"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-				(number "5"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-			)
-			(pin input line
-				(at 12.7 -5.08 180)
-				(length 2.54)
-				(name "PWR"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-				(number "7"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-			)
-			(pin open_collector line
-				(at 12.7 -2.54 180)
-				(length 2.54)
-				(name "PGD"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-				(number "8"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-			)
-			(pin input line
-				(at 7.62 10.16 270)
-				(length 2.54)
-				(name "OUT"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-				(number "9"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-			)
-			(pin output line
-				(at 2.54 10.16 270)
-				(length 2.54)
-				(name "GATE"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-				(number "10"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-			)
-		)
-		(embedded_fonts no)
-	)
-(symbol "Transistor_FET:Q_NMOS_GDS"
-		(pin_names
-			(offset 0)
-			(hide yes)
-		)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(duplicate_pin_numbers_are_jumpers no)
-		(property "Reference" "Q"
-			(at 5.08 1.905 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "Q_NMOS_GDS"
-			(at 5.08 0 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" ""
-			(at 5.08 2.54 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(hide yes)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 0 0 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(hide yes)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "N-MOSFET transistor, gate/drain/source"
-			(at 0 0 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(hide yes)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "ki_keywords" "transistor NMOS N-MOS N-MOSFET"
-			(at 0 0 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(hide yes)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(symbol "Q_NMOS_GDS_0_1"
-			(polyline
-				(pts
-					(xy 0.254 1.905) (xy 0.254 -1.905)
-				)
-				(stroke
-					(width 0.254)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
-			)
-			(polyline
-				(pts
-					(xy 0.254 0) (xy -2.54 0)
-				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
-			)
-			(polyline
-				(pts
-					(xy 0.762 2.286) (xy 0.762 1.27)
-				)
-				(stroke
-					(width 0.254)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
-			)
-			(polyline
-				(pts
-					(xy 0.762 0.508) (xy 0.762 -0.508)
-				)
-				(stroke
-					(width 0.254)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
-			)
-			(polyline
-				(pts
-					(xy 0.762 -1.27) (xy 0.762 -2.286)
-				)
-				(stroke
-					(width 0.254)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
-			)
-			(polyline
-				(pts
-					(xy 0.762 -1.778) (xy 3.302 -1.778) (xy 3.302 1.778) (xy 0.762 1.778)
-				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
-			)
-			(polyline
-				(pts
-					(xy 1.016 0) (xy 2.032 0.381) (xy 2.032 -0.381) (xy 1.016 0)
-				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type outline)
-				)
-			)
-			(circle
-				(center 1.651 0)
-				(radius 2.794)
-				(stroke
-					(width 0.254)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
-			)
-			(polyline
-				(pts
-					(xy 2.54 2.54) (xy 2.54 1.778)
-				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
-			)
-			(circle
-				(center 2.54 1.778)
-				(radius 0.254)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type outline)
-				)
-			)
-			(circle
-				(center 2.54 -1.778)
-				(radius 0.254)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type outline)
-				)
-			)
-			(polyline
-				(pts
-					(xy 2.54 -2.54) (xy 2.54 0) (xy 0.762 0)
-				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
-			)
-			(polyline
-				(pts
-					(xy 2.921 0.381) (xy 3.683 0.381)
-				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
-			)
-			(polyline
-				(pts
-					(xy 3.302 0.381) (xy 2.921 -0.254) (xy 3.683 -0.254) (xy 3.302 0.381)
-				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
-			)
-		)
-		(symbol "Q_NMOS_GDS_1_1"
-			(pin input line
-				(at -5.08 0 0)
-				(length 2.54)
-				(name "G"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-				(number "1"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-			)
-			(pin passive line
-				(at 2.54 5.08 270)
-				(length 2.54)
-				(name "D"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-				(number "2"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-			)
-			(pin passive line
-				(at 2.54 -5.08 90)
-				(length 2.54)
-				(name "S"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-				(number "3"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-			)
-		)
-		(embedded_fonts no)
-	)
-	)
-	(text "Populate this sheet only with confirmed parts, nets, ratings and connector pinout."
-		(exclude_from_sim no)
-		(at 40 52 0)
+		(at 30.48 29.21 0)
 		(effects
 			(font
-				(size 1.27 1.27)
+				(size 2.2 2.2)
 			)
 			(justify left bottom)
 		)
-		(uuid "418235ee-c8d0-4da1-a957-bc297940abda")
+		(uuid "439c65b6-39a6-4de1-b623-f75624c6131f")
 	)
-	(text "Power-control electronics and BionX/CAN interface; voltage, current, isolation, protections, and connector pinout are not yet specified."
+	(text "Pack 10S  |  CAN BionX  |  Feu arrière 12 V / 200 mA  |  Buzzer 5 V"
 		(exclude_from_sim no)
-		(at 40 45 0)
+		(at 30.48 39.37 0)
 		(effects
 			(font
-				(size 1.27 1.27)
+				(size 1.3 1.3)
 			)
 			(justify left bottom)
 		)
-		(uuid "7e017fe7-3d8b-4da6-8a2c-33968a7c49c7")
+		(uuid "9a73cc6b-46e9-49be-8115-49884daf0928")
 	)
-	(text "Pack: 10S; 30 A fuse reported. 42 V maximum applies only if the cells are standard 4.2 V/cell Li-ion." (exclude_from_sim no) (at 40 45 0) (effects (font (size 1.15 1.15)) (justify left bottom)) (uuid "87ebdf1e-97cb-481c-8b79-4e8336858985"))
-	(text "U1 LM5069MM-1 is an 80 V hot-swap/inrush controller with latch-off; JLCPCB C3177598 (extended listing)." (exclude_from_sim no) (at 40 52 0) (effects (font (size 1.15 1.15)) (justify left bottom)) (uuid "4033b672-db19-41e9-b135-8d40311685c4"))
-	(text "Q1, sense resistor, current/power limits, timers, UVLO/OVLO and thermal path are intentionally TBD." (exclude_from_sim no) (at 40 59 0) (effects (font (size 1.15 1.15)) (justify left bottom)) (uuid "455ad210-e022-4583-afb5-b4d76733a7d4"))
-	(text "Precharge/inrush here is through controlled Q1 turn-on. A separate resistor/relay path needs controller input capacitance and desired precharge time." (exclude_from_sim no) (at 40 66 0) (effects (font (size 1.15 1.15)) (justify left bottom)) (uuid "cab0c951-d3df-40fa-9bd4-4523b8f4c542"))
-	(text "Do not connect this starter to a pack or motor controller. High-current path, fuse coordination, reverse polarity, transient clamp and thermal validation remain open." (exclude_from_sim no) (at 40 73 0) (effects (font (size 1.15 1.15)) (justify left bottom)) (uuid "1a195997-f9af-4b21-bd28-fa5757f32850"))
-	(symbol (lib_id "Power_Management:LM5069MM-1") (at 145 110 0) (unit 1) (exclude_from_sim no) (in_bom yes) (on_board yes) (dnp no) (uuid "a1b09b62-2152-4827-be14-0524ef6b5528")
-		(property "Reference" "U1" (at 145 96.0 0) (effects (font (size 1.27 1.27))))
-		(property "Value" "LM5069MM-1/NOPB" (at 149.0 111.27 0) (effects (font (size 1.27 1.27))))
-		(property "Footprint" "Package_SO:MSOP-10_3x3mm_P0.5mm" (at 145 110 0) (effects (font (size 1.27 1.27)) (hide yes)))
-		(property "Datasheet" "https://www.ti.com/lit/ds/symlink/lm5069.pdf" (at 145 110 0) (effects (font (size 1.27 1.27)) (hide yes)))
-		(property "Manufacturer" "Texas Instruments" (at 145 110 0) (effects (font (size 1.27 1.27)) (hide yes)))
-		(property "MPN" "LM5069MM-1/NOPB" (at 145 110 0) (effects (font (size 1.27 1.27)) (hide yes)))
-		(property "LCSC" "C3177598" (at 145 110 0) (effects (font (size 1.27 1.27)) (hide yes)))
-		(pin "6" (uuid "5564b546-2743-4a25-9132-0860236ce421"))
-		(pin "1" (uuid "515a72b2-08fb-497f-9d0f-7a64ba17a61b"))
-		(pin "2" (uuid "2a18b3fd-a9fc-4d3e-b32d-2fcc9112d9d7"))
-		(pin "3" (uuid "93039794-646d-46fc-a752-aef3f51f84a6"))
-		(pin "4" (uuid "de449e6f-e151-4988-bc39-8b438aabf5f8"))
-		(pin "5" (uuid "e27f68e8-818b-4419-82d2-3e6c088ab11c"))
-		(pin "7" (uuid "cf69a2ee-9909-49c9-8027-a18e8fcfb4ce"))
-		(pin "8" (uuid "f7457f11-8357-4071-9fc9-de33819cc98a"))
-		(pin "9" (uuid "6c9abe9c-063e-47d9-93d8-a1a6a0da0c6c"))
-		(pin "10" (uuid "7a74581e-ccea-4808-a354-982a16bf0df1"))
-		(instances (project "BionX_Power_Control" (path "/e3518469-2023-4ad5-b1bd-81745f6fca11" (reference "U1") (unit 1))))
+	(text "Le 3,3 V reste alimenté. Le 12 V accessoires est commandé par le module ESP32-S3."
+		(exclude_from_sim no)
+		(at 30.48 48.26 0)
+		(effects
+			(font
+				(size 1.3 1.3)
+			)
+			(justify left bottom)
+		)
+		(uuid "a41836d0-3b62-4da3-be07-7c1568e1d9d5")
 	)
-	(symbol (lib_id "Transistor_FET:Q_NMOS_GDS") (at 220 110 0) (unit 1) (exclude_from_sim no) (in_bom yes) (on_board yes) (dnp no) (uuid "d2fc94e5-7af2-4d66-a5c9-b3ef52fd946a")
-		(property "Reference" "Q1" (at 220 96.0 0) (effects (font (size 1.27 1.27))))
-		(property "Value" "TBD — external series N-MOSFET; verify SOA and thermal design" (at 224.0 111.27 0) (effects (font (size 1.27 1.27))))
-		(property "Footprint" "" (at 220 110 0) (effects (font (size 1.27 1.27)) (hide yes)))
-		(property "Datasheet" "~" (at 220 110 0) (effects (font (size 1.27 1.27)) (hide yes)))
-		(property "Manufacturer" "TBD" (at 220 110 0) (effects (font (size 1.27 1.27)) (hide yes)))
-		(property "MPN" "TBD after load-capacitance/SOA review" (at 220 110 0) (effects (font (size 1.27 1.27)) (hide yes)))
-		(pin "1" (uuid "319ee045-baab-4b9c-981e-d94a70d18bde"))
-		(pin "2" (uuid "11b23568-0fb8-4aea-beba-5da221c20928"))
-		(pin "3" (uuid "d1fd25cd-460f-4206-8f2e-0ba11224340a"))
-		(instances (project "BionX_Power_Control" (path "/e3518469-2023-4ad5-b1bd-81745f6fca11" (reference "Q1") (unit 1))))
+	(sheet
+		(at 149.86 66.04)
+		(size 95.25 25.4)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(stroke
+			(width 0.254)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "6e8c1b22-feeb-4e9d-a8c4-16e33254b928")
+		(property "Sheetname" "02  Alimentation 3,3 V permanente"
+			(at 149.86 64.77 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "Alim_3V3.kicad_sch"
+			(at 149.86 92.71 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1 1)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "BionX_Power_Control"
+				(path "/e3518469-2023-4ad5-b1bd-81745f6fca11"
+					(page "3")
+				)
+			)
+			(project "bionxHW"
+				(path "/00b756a7-975b-4f5a-95d6-4519feedeb50/1099941e-a455-4ae0-a26b-55d7edd7db02"
+					(page "5")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 149.86 142.24)
+		(size 95.25 25.4)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(stroke
+			(width 0.254)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "99c7b1d4-6444-426b-8b39-866f45c9f662")
+		(property "Sheetname" "06  Feu arrière et buzzer"
+			(at 149.86 140.97 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "Accessoires.kicad_sch"
+			(at 149.86 168.91 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1 1)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "BionX_Power_Control"
+				(path "/e3518469-2023-4ad5-b1bd-81745f6fca11"
+					(page "7")
+				)
+			)
+			(project "bionxHW"
+				(path "/00b756a7-975b-4f5a-95d6-4519feedeb50/1099941e-a455-4ae0-a26b-55d7edd7db02"
+					(page "9")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 30.48 171.45)
+		(size 95.25 25.4)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(stroke
+			(width 0.254)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "9a1b28db-986f-4e00-adc2-dc9d6f3e4580")
+		(property "Sheetname" "07  USB-C et sélection des sources"
+			(at 30.48 170.18 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "USB.kicad_sch"
+			(at 30.48 198.12 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1 1)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "BionX_Power_Control"
+				(path "/e3518469-2023-4ad5-b1bd-81745f6fca11"
+					(page "8")
+				)
+			)
+			(project "bionxHW"
+				(path "/00b756a7-975b-4f5a-95d6-4519feedeb50/1099941e-a455-4ae0-a26b-55d7edd7db02"
+					(page "10")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 30.48 104.14)
+		(size 95.25 25.4)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(stroke
+			(width 0.254)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "a182a68b-9941-493d-93e8-692444cf910e")
+		(property "Sheetname" "03  Alimentations accessoires 12 V et 5 V"
+			(at 30.48 102.87 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "Alim_12V.kicad_sch"
+			(at 30.48 130.81 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1 1)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "BionX_Power_Control"
+				(path "/e3518469-2023-4ad5-b1bd-81745f6fca11"
+					(page "4")
+				)
+			)
+			(project "bionxHW"
+				(path "/00b756a7-975b-4f5a-95d6-4519feedeb50/1099941e-a455-4ae0-a26b-55d7edd7db02"
+					(page "6")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 149.86 104.14)
+		(size 95.25 25.4)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(stroke
+			(width 0.254)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "af00919c-ae4e-4330-b22c-bee59966179f")
+		(property "Sheetname" "04  Commande et mesure"
+			(at 149.86 102.87 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "Commande.kicad_sch"
+			(at 149.86 130.81 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1 1)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "BionX_Power_Control"
+				(path "/e3518469-2023-4ad5-b1bd-81745f6fca11"
+					(page "5")
+				)
+			)
+			(project "bionxHW"
+				(path "/00b756a7-975b-4f5a-95d6-4519feedeb50/1099941e-a455-4ae0-a26b-55d7edd7db02"
+					(page "7")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 30.48 66.04)
+		(size 95.25 25.4)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(stroke
+			(width 0.254)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "ed88a01a-3685-43c8-bd54-a1199b5bf152")
+		(property "Sheetname" "01  Commutation et précharge"
+			(at 30.48 64.77 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "Power_Switch.kicad_sch"
+			(at 30.48 92.71 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1 1)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "BionX_Power_Control"
+				(path "/e3518469-2023-4ad5-b1bd-81745f6fca11"
+					(page "2")
+				)
+			)
+			(project "bionxHW"
+				(path "/00b756a7-975b-4f5a-95d6-4519feedeb50/1099941e-a455-4ae0-a26b-55d7edd7db02"
+					(page "4")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 30.48 138.43)
+		(size 95.25 25.4)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(stroke
+			(width 0.254)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "eff855db-d146-4176-bf78-2d134189630f")
+		(property "Sheetname" "05  Interface CAN"
+			(at 30.48 137.16 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "CAN.kicad_sch"
+			(at 30.48 165.1 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1 1)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "BionX_Power_Control"
+				(path "/e3518469-2023-4ad5-b1bd-81745f6fca11"
+					(page "6")
+				)
+			)
+			(project "bionxHW"
+				(path "/00b756a7-975b-4f5a-95d6-4519feedeb50/1099941e-a455-4ae0-a26b-55d7edd7db02"
+					(page "8")
+				)
+			)
+		)
 	)
 	(sheet_instances
 		(path "/"

@@ -5,7 +5,13 @@
 ~*.kicad_pro.lck
 fp-info-cache
 sym-lib-table
+!/sym-lib-table
+!/pcb_power_control/sym-lib-table
+!/pcb_display/sym-lib-table
 fp-lib-table
+!/fp-lib-table
+!/pcb_power_control/fp-lib-table
+!/pcb_display/fp-lib-table
 
 # macOS and editor history
 .DS_Store

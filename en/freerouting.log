@@ -1,0 +1,10 @@
+2026-11-16 19:50:01.876 INFO   Freerouting v2.5.0 (build-date: 2026-10-05)
+2026-11-16 19:50:01.885 DEBUG  [startup] user-data path : /Users/theolacassin/Library/Application Support/freerouting  (source: default (OS standard user-data path))
+2026-11-16 19:50:01.885 DEBUG  [startup] log file       : /Users/theolacassin/Documents/GitRepos/BionxHw/bionxHW/en/freerouting.log
+2026-11-16 19:50:01.976 DEBUG  Settings loaded from '/Users/theolacassin/Library/Application Support/freerouting/freerouting.json'.
+2026-11-16 19:50:01.976 WARN   [startup] freerouting.json contains a stale 'logging.file.location' value: '/Users/theolacassin/Library/Logs/freerouting/freerouting.log'. The actual log file is being written to '/Users/theolacassin/Documents/GitRepos/BionxHw/bionxHW/en/freerouting.log' (as resolved at startup). The stale value will be corrected in freerouting.json on next save. If you see this in Docker, the old JSON was written by an earlier version that stored the host path; the fix is to delete freerouting.json so it is regenerated with the correct path.
+2026-11-16 19:50:02.215 INFO   Hardware: 8 CPU cores, 232 CPU score, 4096 MB RAM
+2026-11-16 19:50:02.216 DEBUG  UTC Time: 2026-11-16T18:50:01.977012Z
+2026-11-16 19:50:02.216 DEBUG  GUI Language: en
+2026-11-16 19:50:02.216 DEBUG  Host: N/A
+2026-11-16 19:50:02.216 DEBUG  Screen: 2560x1440, 108 DPI

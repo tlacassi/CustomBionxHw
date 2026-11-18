@@ -680,6 +680,34 @@
     [
       "1099941e-a455-4ae0-a26b-55d7edd7db02",
       "POWER CONTROL PCB"
+    ],
+    [
+      "ed88a01a-3685-43c8-bd54-a1199b5bf152",
+      "01  Commutation et précharge"
+    ],
+    [
+      "6e8c1b22-feeb-4e9d-a8c4-16e33254b928",
+      "02  Alimentation 3,3 V permanente"
+    ],
+    [
+      "a182a68b-9941-493d-93e8-692444cf910e",
+      "03  Alimentations accessoires 12 V et 5 V"
+    ],
+    [
+      "af00919c-ae4e-4330-b22c-bee59966179f",
+      "04  Commande et mesure"
+    ],
+    [
+      "eff855db-d146-4176-bf78-2d134189630f",
+      "05  Interface CAN"
+    ],
+    [
+      "99c7b1d4-6444-426b-8b39-866f45c9f662",
+      "06  Feu arrière et buzzer"
+    ],
+    [
+      "9a1b28db-986f-4e00-adc2-dc9d6f3e4580",
+      "07  USB-C et sélection des sources"
     ]
   ],
   "text_variables": {},
