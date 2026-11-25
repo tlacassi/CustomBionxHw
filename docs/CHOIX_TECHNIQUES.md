@@ -157,4 +157,4 @@ U9 AP2112K-3.3 fournit un 3,3 V à partir de VBUS. U10 TPS2116 sélectionne entr
 
 Sur USB seul, le module, le CAN, l’INA228 et le buzzer sont alimentables. Le feu arrière dépend toujours du 12 V du pack. Le port est câblé comme périphérique USB 5 V. Vérifier la consommation à l’attachement, puis pendant la programmation avec le buzzer actif, selon le courant annoncé par le port hôte.
 
-La vue d’ensemble A4 organise la carte par fonctions, selon la structure du [schéma Softcar de référence](https://github.com/SOFTCARCLEAN/SoftcarHardwareVolant/tree/250203_SIO_TPI). [Datasheet TI TPS2116](https://www.ti.com/lit/ds/symlink/tps2116.pdf) · [Guide USB Espressif](https://docs.espressif.com/projects/esp-hardware-design-guidelines/en/latest/esp32s3/schematic-checklist.html)
+La vue d’ensemble A4 organise la carte par fonctions. [Datasheet TI TPS2116](https://www.ti.com/lit/ds/symlink/tps2116.pdf) · [Guide USB Espressif](https://docs.espressif.com/projects/esp-hardware-design-guidelines/en/latest/esp32s3/schematic-checklist.html)
