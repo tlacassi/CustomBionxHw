@@ -9,6 +9,306 @@
 		(rev "0.3")
 	)
 	(lib_symbols
+		(symbol "Connector:TestPoint"
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(offset 0.762)
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "TP"
+				(at 0 6.858 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "TestPoint"
+				(at 0 5.08 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 5.08 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Datasheet" ""
+				(at 5.08 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" "test point"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_keywords" "test point tp"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_fp_filters" "Pin* Test*"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "TestPoint_0_1"
+				(circle
+					(center 0 3.302)
+					(radius 0.762)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "TestPoint_1_1"
+				(pin passive line
+					(at 0 0 90)
+					(length 2.54)
+					(name "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "Device:C_Polarized"
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(offset 0.254)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "C"
+				(at 0.635 2.54 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+				)
+			)
+			(property "Value" "C_Polarized"
+				(at 0.635 -2.54 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+				)
+			)
+			(property "Footprint" ""
+				(at 0.9652 -3.81 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" "Polarized capacitor"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_keywords" "cap capacitor"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_fp_filters" "CP_*"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "C_Polarized_0_1"
+				(rectangle
+					(start -2.286 0.508)
+					(end 2.286 1.016)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -1.778 2.286) (xy -0.762 2.286)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -1.27 2.794) (xy -1.27 1.778)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(rectangle
+					(start 2.286 -0.508)
+					(end -2.286 -1.016)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type outline)
+					)
+				)
+			)
+			(symbol "C_Polarized_1_1"
+				(pin passive line
+					(at 0 3.81 270)
+					(length 2.794)
+					(name ""
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 -3.81 90)
+					(length 2.794)
+					(name ""
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "Transistor_FET:Q_NMOS_GSD"
 			(pin_names
 				(offset 0)
@@ -3197,7 +3497,7 @@
 		)
 		(uuid "2bd8a342-60d4-4aec-9bb5-43b9a3020d7d")
 	)
-	(text "SELECTEURS DE SOURCE 3,3 V ET 5 V"
+	(text "SÉLECTION DE SOURCE 3,3 V (USB OU BUCK)"
 		(exclude_from_sim no)
 		(at 173 36 0)
 		(effects
@@ -3208,7 +3508,7 @@
 		)
 		(uuid "3ebd8afd-dfb6-42e6-9e24-351f6f13ac94")
 	)
-	(text "MODE et PR1 bas : source de tension la plus haute."
+	(text "L'USB n'alimente que le 3,3 V (AMS1117 + Q7/Q8)."
 		(exclude_from_sim no)
 		(at 173 151.13 0)
 		(effects
@@ -3219,7 +3519,7 @@
 		)
 		(uuid "d3cff52d-f466-4278-a7db-893fb58f8b4d")
 	)
-	(text "Le 12 V accessoires reste alimenté par le pack."
+	(text "Sans pack, le 5 V accessoires (buzzer, gâchette) est absent."
 		(exclude_from_sim no)
 		(at 173 157.48 0)
 		(effects
@@ -3862,7 +4162,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "05934517-39b5-4d2e-8fc6-af2cc1568094")
-		(property "Reference" "#PWR412"
+		(property "Reference" "#PWR099"
 			(at 58.88 143.05 0)
 			(hide yes)
 			(show_name no)
@@ -3920,13 +4220,13 @@
 		(instances
 			(project "bionxHW"
 				(path "/00b756a7-975b-4f5a-95d6-4519feedeb50/1099941e-a455-4ae0-a26b-55d7edd7db02/9a1b28db-986f-4e00-adc2-dc9d6f3e4580"
-					(reference "#PWR412")
+					(reference "#PWR099")
 					(unit 1)
 				)
 			)
 			(project "BionX_Power_Control"
 				(path "/e3518469-2023-4ad5-b1bd-81745f6fca11/9a1b28db-986f-4e00-adc2-dc9d6f3e4580"
-					(reference "#PWR412")
+					(reference "#PWR099")
 					(unit 1)
 				)
 			)
@@ -4165,7 +4465,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "1d0235a4-9979-4dd1-86dd-0647cd0d78aa")
-		(property "Reference" "#PWR407"
+		(property "Reference" "#PWR100"
 			(at 112.22 113.84 0)
 			(hide yes)
 			(show_name no)
@@ -4223,13 +4523,13 @@
 		(instances
 			(project "bionxHW"
 				(path "/00b756a7-975b-4f5a-95d6-4519feedeb50/1099941e-a455-4ae0-a26b-55d7edd7db02/9a1b28db-986f-4e00-adc2-dc9d6f3e4580"
-					(reference "#PWR407")
+					(reference "#PWR100")
 					(unit 1)
 				)
 			)
 			(project "BionX_Power_Control"
 				(path "/e3518469-2023-4ad5-b1bd-81745f6fca11/9a1b28db-986f-4e00-adc2-dc9d6f3e4580"
-					(reference "#PWR407")
+					(reference "#PWR100")
 					(unit 1)
 				)
 			)
@@ -4246,7 +4546,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "2344b403-023c-4932-bd63-ba418d6a6c97")
-		(property "Reference" "#PWR405"
+		(property "Reference" "#PWR101"
 			(at 86.82 110.03 0)
 			(hide yes)
 			(show_name no)
@@ -4304,13 +4604,13 @@
 		(instances
 			(project "bionxHW"
 				(path "/00b756a7-975b-4f5a-95d6-4519feedeb50/1099941e-a455-4ae0-a26b-55d7edd7db02/9a1b28db-986f-4e00-adc2-dc9d6f3e4580"
-					(reference "#PWR405")
+					(reference "#PWR101")
 					(unit 1)
 				)
 			)
 			(project "BionX_Power_Control"
 				(path "/e3518469-2023-4ad5-b1bd-81745f6fca11/9a1b28db-986f-4e00-adc2-dc9d6f3e4580"
-					(reference "#PWR405")
+					(reference "#PWR101")
 					(unit 1)
 				)
 			)
@@ -4327,7 +4627,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "2f969827-d3d4-4ca3-a626-8935c5bf2b52")
-		(property "Reference" "#PWR417"
+		(property "Reference" "#PWR102"
 			(at 143.97 178.61 0)
 			(hide yes)
 			(show_name no)
@@ -4385,13 +4685,13 @@
 		(instances
 			(project "bionxHW"
 				(path "/00b756a7-975b-4f5a-95d6-4519feedeb50/1099941e-a455-4ae0-a26b-55d7edd7db02/9a1b28db-986f-4e00-adc2-dc9d6f3e4580"
-					(reference "#PWR417")
+					(reference "#PWR102")
 					(unit 1)
 				)
 			)
 			(project "BionX_Power_Control"
 				(path "/e3518469-2023-4ad5-b1bd-81745f6fca11/9a1b28db-986f-4e00-adc2-dc9d6f3e4580"
-					(reference "#PWR417")
+					(reference "#PWR102")
 					(unit 1)
 				)
 			)
@@ -4618,7 +4918,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "5d5d5c3d-1a89-471c-9ff4-d2823fe7be3d")
-		(property "Reference" "#PWR414"
+		(property "Reference" "#PWR103"
 			(at 114.76 143.05 0)
 			(hide yes)
 			(show_name no)
@@ -4676,13 +4976,94 @@
 		(instances
 			(project "bionxHW"
 				(path "/00b756a7-975b-4f5a-95d6-4519feedeb50/1099941e-a455-4ae0-a26b-55d7edd7db02/9a1b28db-986f-4e00-adc2-dc9d6f3e4580"
-					(reference "#PWR414")
+					(reference "#PWR103")
 					(unit 1)
 				)
 			)
 			(project "BionX_Power_Control"
 				(path "/e3518469-2023-4ad5-b1bd-81745f6fca11/9a1b28db-986f-4e00-adc2-dc9d6f3e4580"
-					(reference "#PWR414")
+					(reference "#PWR103")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:VDD")
+		(at 111.76 133.35 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board no)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "6d11d3e6-aba3-463f-935a-c5f6be0c91ce")
+		(property "Reference" "#PWR126"
+			(at 114.76 130.35 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1 1)
+				)
+			)
+		)
+		(property "Value" "USB_3V3"
+			(at 111.76 130.35 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1 1)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 111.76 133.35 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1 1)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 111.76 133.35 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 111.76 133.35 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "a74b4db9-d260-42cc-9633-bfbe47c5d707")
+		)
+		(instances
+			(project "bionxHW"
+				(path "/00b756a7-975b-4f5a-95d6-4519feedeb50/1099941e-a455-4ae0-a26b-55d7edd7db02/9a1b28db-986f-4e00-adc2-dc9d6f3e4580"
+					(reference "#PWR126")
+					(unit 1)
+				)
+			)
+			(project "BionX_Power_Control"
+				(path "/e3518469-2023-4ad5-b1bd-81745f6fca11/9a1b28db-986f-4e00-adc2-dc9d6f3e4580"
+					(reference "#PWR126")
 					(unit 1)
 				)
 			)
@@ -4699,7 +5080,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "6deaf4ff-e4f2-4938-97cd-7522165212e8")
-		(property "Reference" "#PWR416"
+		(property "Reference" "#PWR104"
 			(at 107.14 178.61 0)
 			(hide yes)
 			(show_name no)
@@ -4757,13 +5138,13 @@
 		(instances
 			(project "bionxHW"
 				(path "/00b756a7-975b-4f5a-95d6-4519feedeb50/1099941e-a455-4ae0-a26b-55d7edd7db02/9a1b28db-986f-4e00-adc2-dc9d6f3e4580"
-					(reference "#PWR416")
+					(reference "#PWR104")
 					(unit 1)
 				)
 			)
 			(project "BionX_Power_Control"
 				(path "/e3518469-2023-4ad5-b1bd-81745f6fca11/9a1b28db-986f-4e00-adc2-dc9d6f3e4580"
-					(reference "#PWR416")
+					(reference "#PWR104")
 					(unit 1)
 				)
 			)
@@ -4885,7 +5266,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "75d9367b-04eb-49d0-949e-ba2685d9df7f")
-		(property "Reference" "#PWR415"
+		(property "Reference" "#PWR105"
 			(at 114.76 155.75 0)
 			(hide yes)
 			(show_name no)
@@ -4943,13 +5324,13 @@
 		(instances
 			(project "bionxHW"
 				(path "/00b756a7-975b-4f5a-95d6-4519feedeb50/1099941e-a455-4ae0-a26b-55d7edd7db02/9a1b28db-986f-4e00-adc2-dc9d6f3e4580"
-					(reference "#PWR415")
+					(reference "#PWR105")
 					(unit 1)
 				)
 			)
 			(project "BionX_Power_Control"
 				(path "/e3518469-2023-4ad5-b1bd-81745f6fca11/9a1b28db-986f-4e00-adc2-dc9d6f3e4580"
-					(reference "#PWR415")
+					(reference "#PWR105")
 					(unit 1)
 				)
 			)
@@ -4966,7 +5347,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "8dab2190-6007-422d-9ff9-60c160c7ce28")
-		(property "Reference" "#PWR404"
+		(property "Reference" "#PWR106"
 			(at 71.58 110.03 0)
 			(hide yes)
 			(show_name no)
@@ -5024,13 +5405,13 @@
 		(instances
 			(project "bionxHW"
 				(path "/00b756a7-975b-4f5a-95d6-4519feedeb50/1099941e-a455-4ae0-a26b-55d7edd7db02/9a1b28db-986f-4e00-adc2-dc9d6f3e4580"
-					(reference "#PWR404")
+					(reference "#PWR106")
 					(unit 1)
 				)
 			)
 			(project "BionX_Power_Control"
 				(path "/e3518469-2023-4ad5-b1bd-81745f6fca11/9a1b28db-986f-4e00-adc2-dc9d6f3e4580"
-					(reference "#PWR404")
+					(reference "#PWR106")
 					(unit 1)
 				)
 			)
@@ -5152,7 +5533,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "a3ae7bce-92e7-4466-af05-74a440aa02d3")
-		(property "Reference" "#PWR400"
+		(property "Reference" "#PWR107"
 			(at 46.18 90.98 0)
 			(hide yes)
 			(show_name no)
@@ -5210,13 +5591,13 @@
 		(instances
 			(project "bionxHW"
 				(path "/00b756a7-975b-4f5a-95d6-4519feedeb50/1099941e-a455-4ae0-a26b-55d7edd7db02/9a1b28db-986f-4e00-adc2-dc9d6f3e4580"
-					(reference "#PWR400")
+					(reference "#PWR107")
 					(unit 1)
 				)
 			)
 			(project "BionX_Power_Control"
 				(path "/e3518469-2023-4ad5-b1bd-81745f6fca11/9a1b28db-986f-4e00-adc2-dc9d6f3e4580"
-					(reference "#PWR400")
+					(reference "#PWR107")
 					(unit 1)
 				)
 			)
@@ -5383,7 +5764,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "b10bdde7-9122-40c9-8f1a-1b711efa2b5b")
-		(property "Reference" "#PWR402"
+		(property "Reference" "#PWR108"
 			(at 61.42 47.8 0)
 			(hide yes)
 			(show_name no)
@@ -5441,13 +5822,13 @@
 		(instances
 			(project "bionxHW"
 				(path "/00b756a7-975b-4f5a-95d6-4519feedeb50/1099941e-a455-4ae0-a26b-55d7edd7db02/9a1b28db-986f-4e00-adc2-dc9d6f3e4580"
-					(reference "#PWR402")
+					(reference "#PWR108")
 					(unit 1)
 				)
 			)
 			(project "BionX_Power_Control"
 				(path "/e3518469-2023-4ad5-b1bd-81745f6fca11/9a1b28db-986f-4e00-adc2-dc9d6f3e4580"
-					(reference "#PWR402")
+					(reference "#PWR108")
 					(unit 1)
 				)
 			)
@@ -5559,7 +5940,7 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:C")
+		(lib_id "Device:C_Polarized")
 		(at 111.76 149.86 0)
 		(unit 1)
 		(body_style 1)
@@ -5579,7 +5960,7 @@
 				)
 			)
 		)
-		(property "Value" "22u / 25V X5R"
+		(property "Value" "10u / 16V tantale"
 			(at 119.38 151.13 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5589,7 +5970,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_1206_3216Metric"
+		(property "Footprint" "Capacitor_Tantalum_SMD:CP_EIA-3216-18_Kemet-A"
 			(at 111.76 149.86 0)
 			(hide yes)
 			(show_name no)
@@ -5620,7 +6001,7 @@
 				)
 			)
 		)
-		(property "MPN" "CL31A226KAHNNNE"
+		(property "MPN" "TAJA106K016RNJ"
 			(at 111.76 149.86 0)
 			(hide yes)
 			(show_name no)
@@ -5631,7 +6012,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C12891"
+		(property "LCSC" "C7171"
 			(at 111.76 149.86 0)
 			(hide yes)
 			(show_name no)
@@ -5674,7 +6055,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "cf2cbc2e-2129-47a5-9842-03ff5b8b081f")
-		(property "Reference" "#PWR413"
+		(property "Reference" "#PWR109"
 			(at 58.88 155.75 0)
 			(hide yes)
 			(show_name no)
@@ -5732,13 +6113,13 @@
 		(instances
 			(project "bionxHW"
 				(path "/00b756a7-975b-4f5a-95d6-4519feedeb50/1099941e-a455-4ae0-a26b-55d7edd7db02/9a1b28db-986f-4e00-adc2-dc9d6f3e4580"
-					(reference "#PWR413")
+					(reference "#PWR109")
 					(unit 1)
 				)
 			)
 			(project "BionX_Power_Control"
 				(path "/e3518469-2023-4ad5-b1bd-81745f6fca11/9a1b28db-986f-4e00-adc2-dc9d6f3e4580"
-					(reference "#PWR413")
+					(reference "#PWR109")
 					(unit 1)
 				)
 			)
@@ -5755,7 +6136,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "d11dfe82-a028-4788-ab40-edd7c1216d14")
-		(property "Reference" "#PWR403"
+		(property "Reference" "#PWR110"
 			(at 61.42 47.8 0)
 			(hide yes)
 			(show_name no)
@@ -5814,13 +6195,13 @@
 		(instances
 			(project "bionxHW"
 				(path "/00b756a7-975b-4f5a-95d6-4519feedeb50/1099941e-a455-4ae0-a26b-55d7edd7db02/9a1b28db-986f-4e00-adc2-dc9d6f3e4580"
-					(reference "#PWR403")
+					(reference "#PWR110")
 					(unit 1)
 				)
 			)
 			(project "BionX_Power_Control"
 				(path "/e3518469-2023-4ad5-b1bd-81745f6fca11/9a1b28db-986f-4e00-adc2-dc9d6f3e4580"
-					(reference "#PWR403")
+					(reference "#PWR110")
 					(unit 1)
 				)
 			)
@@ -5942,7 +6323,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "d992d182-ae32-4ff7-a833-da4c4c05ece4")
-		(property "Reference" "#PWR401"
+		(property "Reference" "#PWR111"
 			(at 38.56 90.98 0)
 			(hide yes)
 			(show_name no)
@@ -6000,13 +6381,13 @@
 		(instances
 			(project "bionxHW"
 				(path "/00b756a7-975b-4f5a-95d6-4519feedeb50/1099941e-a455-4ae0-a26b-55d7edd7db02/9a1b28db-986f-4e00-adc2-dc9d6f3e4580"
-					(reference "#PWR401")
+					(reference "#PWR111")
 					(unit 1)
 				)
 			)
 			(project "BionX_Power_Control"
 				(path "/e3518469-2023-4ad5-b1bd-81745f6fca11/9a1b28db-986f-4e00-adc2-dc9d6f3e4580"
-					(reference "#PWR401")
+					(reference "#PWR111")
 					(unit 1)
 				)
 			)
@@ -6023,7 +6404,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "e1689fef-c7b3-4de1-a12d-b68aefe00aec")
-		(property "Reference" "#PWR425"
+		(property "Reference" "#PWR112"
 			(at 262.08 71.93 0)
 			(hide yes)
 			(show_name no)
@@ -6081,13 +6462,13 @@
 		(instances
 			(project "bionxHW"
 				(path "/00b756a7-975b-4f5a-95d6-4519feedeb50/1099941e-a455-4ae0-a26b-55d7edd7db02/9a1b28db-986f-4e00-adc2-dc9d6f3e4580"
-					(reference "#PWR425")
+					(reference "#PWR112")
 					(unit 1)
 				)
 			)
 			(project "BionX_Power_Control"
 				(path "/e3518469-2023-4ad5-b1bd-81745f6fca11/9a1b28db-986f-4e00-adc2-dc9d6f3e4580"
-					(reference "#PWR425")
+					(reference "#PWR112")
 					(unit 1)
 				)
 			)
@@ -6104,7 +6485,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "f5c800b1-c4e2-41ff-8608-d2c57481b6cf")
-		(property "Reference" "#PWR406"
+		(property "Reference" "#PWR113"
 			(at 112.22 96.06 0)
 			(hide yes)
 			(show_name no)
@@ -6162,13 +6543,13 @@
 		(instances
 			(project "bionxHW"
 				(path "/00b756a7-975b-4f5a-95d6-4519feedeb50/1099941e-a455-4ae0-a26b-55d7edd7db02/9a1b28db-986f-4e00-adc2-dc9d6f3e4580"
-					(reference "#PWR406")
+					(reference "#PWR113")
 					(unit 1)
 				)
 			)
 			(project "BionX_Power_Control"
 				(path "/e3518469-2023-4ad5-b1bd-81745f6fca11/9a1b28db-986f-4e00-adc2-dc9d6f3e4580"
-					(reference "#PWR406")
+					(reference "#PWR113")
 					(unit 1)
 				)
 			)
@@ -6185,7 +6566,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "f7dca560-e3b3-4ac1-956f-b44ce0f6c2ff")
-		(property "Reference" "#PWR424"
+		(property "Reference" "#PWR114"
 			(at 262.08 59.23 0)
 			(hide yes)
 			(show_name no)
@@ -6243,13 +6624,13 @@
 		(instances
 			(project "bionxHW"
 				(path "/00b756a7-975b-4f5a-95d6-4519feedeb50/1099941e-a455-4ae0-a26b-55d7edd7db02/9a1b28db-986f-4e00-adc2-dc9d6f3e4580"
-					(reference "#PWR424")
+					(reference "#PWR114")
 					(unit 1)
 				)
 			)
 			(project "BionX_Power_Control"
 				(path "/e3518469-2023-4ad5-b1bd-81745f6fca11/9a1b28db-986f-4e00-adc2-dc9d6f3e4580"
-					(reference "#PWR424")
+					(reference "#PWR114")
 					(unit 1)
 				)
 			)
@@ -6450,7 +6831,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "76831978-a67e-4487-8f21-0a45e644038c")
-		(property "Reference" "#PWR907"
+		(property "Reference" "#PWR115"
 			(at 86.36 152.4 0)
 			(hide yes)
 			(show_name no)
@@ -6510,13 +6891,13 @@
 		(instances
 			(project "bionxHW"
 				(path "/00b756a7-975b-4f5a-95d6-4519feedeb50/1099941e-a455-4ae0-a26b-55d7edd7db02/9a1b28db-986f-4e00-adc2-dc9d6f3e4580"
-					(reference "#PWR907")
+					(reference "#PWR115")
 					(unit 1)
 				)
 			)
 			(project "BionX_Power_Control"
 				(path "/e3518469-2023-4ad5-b1bd-81745f6fca11/9a1b28db-986f-4e00-adc2-dc9d6f3e4580"
-					(reference "#PWR907")
+					(reference "#PWR115")
 					(unit 1)
 				)
 			)
@@ -6996,7 +7377,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "5d8b3353-2e8a-492c-ac07-d235bb2f4e35")
-		(property "Reference" "#PWR901"
+		(property "Reference" "#PWR116"
 			(at 220.98 97.79 0)
 			(hide yes)
 			(show_name no)
@@ -7056,13 +7437,13 @@
 		(instances
 			(project "bionxHW"
 				(path "/00b756a7-975b-4f5a-95d6-4519feedeb50/1099941e-a455-4ae0-a26b-55d7edd7db02/9a1b28db-986f-4e00-adc2-dc9d6f3e4580"
-					(reference "#PWR901")
+					(reference "#PWR116")
 					(unit 1)
 				)
 			)
 			(project "BionX_Power_Control"
 				(path "/e3518469-2023-4ad5-b1bd-81745f6fca11/9a1b28db-986f-4e00-adc2-dc9d6f3e4580"
-					(reference "#PWR901")
+					(reference "#PWR116")
 					(unit 1)
 				)
 			)
@@ -7351,7 +7732,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "5c7b0f98-bcc4-4415-92cc-77f149b02de0")
-		(property "Reference" "#PWR902"
+		(property "Reference" "#PWR117"
 			(at 205.74 102.87 0)
 			(hide yes)
 			(show_name no)
@@ -7411,13 +7792,13 @@
 		(instances
 			(project "bionxHW"
 				(path "/00b756a7-975b-4f5a-95d6-4519feedeb50/1099941e-a455-4ae0-a26b-55d7edd7db02/9a1b28db-986f-4e00-adc2-dc9d6f3e4580"
-					(reference "#PWR902")
+					(reference "#PWR117")
 					(unit 1)
 				)
 			)
 			(project "BionX_Power_Control"
 				(path "/e3518469-2023-4ad5-b1bd-81745f6fca11/9a1b28db-986f-4e00-adc2-dc9d6f3e4580"
-					(reference "#PWR902")
+					(reference "#PWR117")
 					(unit 1)
 				)
 			)
@@ -7433,6 +7814,89 @@
 			(justify left bottom)
 		)
 		(uuid "100e6903-ff5c-432f-9204-c798f95f5e5b")
+	)
+	(symbol
+		(lib_id "Connector:TestPoint")
+		(at 111.76 133.35 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(in_pos_files no)
+		(dnp no)
+		(uuid "39caa7b6-67ee-492c-914d-18ada3b79d84")
+		(property "Reference" "TP29"
+			(at 113.36 128.85 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1 1)
+				)
+			)
+		)
+		(property "Value" "USB_3V3"
+			(at 113.36 130.55 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1 1)
+				)
+			)
+		)
+		(property "Footprint" "TestPoint:TestPoint_Pad_D1.0mm"
+			(at 111.76 133.35 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1 1)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 111.76 133.35 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 111.76 133.35 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "cc1d671b-c4e0-4287-9b5b-8f8876aa4b02")
+		)
+		(instances
+			(project "bionxHW"
+				(path "/00b756a7-975b-4f5a-95d6-4519feedeb50/1099941e-a455-4ae0-a26b-55d7edd7db02/9a1b28db-986f-4e00-adc2-dc9d6f3e4580"
+					(reference "TP29")
+					(unit 1)
+				)
+			)
+			(project "BionX_Power_Control"
+				(path "/e3518469-2023-4ad5-b1bd-81745f6fca11/9a1b28db-986f-4e00-adc2-dc9d6f3e4580"
+					(reference "TP29")
+					(unit 1)
+				)
+			)
+		)
 	)
 	(sheet_instances
 		(path "/"

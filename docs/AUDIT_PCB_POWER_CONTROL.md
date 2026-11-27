@@ -7,6 +7,51 @@ Audit critique avant commande JLCPCB, fait en lecture seule sur `pcb_power_contr
 - Statut : **[C]** confirmé (commande, netlist, datasheet), **[H]** hypothèse, **[M]** à mesurer.
 - Gravité : **Bloquant** (à corriger avant commande), **Important**, **Mineur**, **Suggestion**.
 
+## Suivi des corrections (commencé le 2026-11-26)
+
+Statuts : **Fait** (corrigé dans le schéma et/ou le PCB, vérifié par ERC, DRC et parité), **Partiel**, **À faire**, **Banc** (ne se règle qu'avec une mesure), **Firmware**, **Devis** (se règle à la commande JLC). Le détail de chaque correction est dans la section « Journal des corrections » en fin de document.
+
+| Point | Gravité | Sujet | Statut |
+|---:|---|---|---|
+| 1 | Bloquant | Repères + / − des XT60 | Partiel : sérigraphie corrigée ; polarité moulée du XT60 à vérifier sur la pièce |
+| 2 | Bloquant | Fusibles des feux | Fait |
+| 3 | Important | Découplage ESP32, RC d'EN | Partiel : C35 et C36 ajoutés ; RC d'EN laissé en place (pas de place près de la broche 3) |
+| 4 | Important | Boucles des bucks | Partiel : bootstrap, VCC et vias thermiques faits ; C12 (entrée de U5) laissé en place |
+| 5 | Important | Kelvin du shunt, C_ISCP | Fait (boucle ≈13 mm² au lieu de ≈153) |
+| 6 | Important | Rayons thermiques GND des XT60 | Fait |
+| 7 | Important | Condensateur tampon PACK_RAW | Fait (C37) ; marge des TVS à confirmer au banc |
+| 8 | Important | Isolement BMS / ESP32 | Fait |
+| 9 | Important | TVS CAN 24 V | Fait : D1 non monté (empreinte gardée) |
+| 10 | Important | Trous de fixation, CAN sous H1 | Fait |
+| 11 | Important | Protection thermique matérielle (DIODE) | Fait |
+| 12 | Mineur | Vias « buried » | Fait |
+| 13 | Mineur | Empilement non défini | Fait (2 oz extérieur : choix au devis) |
+| 14 | Mineur | AMS1117 et céramique | Fait (C28 tantale 10 µF) |
+| 15 | Mineur | Classe de nets HV | Fait (règle à 0,3 mm, voir journal) |
+| 16 | Mineur | Bootstrap et grilles du TPS48111 | À faire : demande de reprendre le placement autour de U1 (pas de place libre) |
+| 17 | Mineur | Sérigraphie | Partiel : textes ajoutés, traits à 0,15 mm, références déplacées ; hauteur laissée à 0,8 mm |
+| 18 | Mineur | UART DALY : vitesse, veille | Banc / Firmware |
+| 19 | Mineur | Retour du 3,3 V en USB seul | Banc |
+| 20 | Mineur | Annotation, nom de feuille | Fait |
+| 21 | Mineur | Divers (H1/J10, prix, cavalier J7) | Fait (documentation : `BOM.md`, rondelle DIN 433 en H1) |
+| 22 à 28 | Suggestion | Diode série bucks, surtension VSW, faisceau, terminaison, mécanique, thermique Q1, chien de garde | 25 et 27 faits ; 22, 23, 24, 26 et 28 : décision à prendre (ajout de circuit ou de mécanique) |
+| 29 | Important | Empreinte du shunt | Fait ; résistance effective à mesurer au banc |
+| 30 | Important | Pastille thermique LMR36510 | Fait |
+| 31 | Mineur | Vias dans les pastilles | Fait, sauf R46.2 (via en bord de pastille, zone saturée, via bouché) |
+| 32 | Mineur | Notes du schéma périmées | Fait (note des feux à finir avec le point 2) |
+| 33 | Mineur | BOM et placement JLC (BZ1) | Fait |
+| 34 | Mineur | Modèles 3D | À faire |
+| 35 | Suggestion | Diviseur de retour du buck 3,3 V | Non retenu pour l'instant (gain ≈ 5 µA) |
+| 36 | Mineur | Impulsions des GPIO au démarrage | Partiel : R58 et R59 (1 k) ajoutées ; déplacement de CAN_STB / CAN_TX à décider (firmware) |
+| 37 | Important | Court-circuit franc en sortie | Fait (C37) ; à valider au banc avec alimentation limitée |
+| 38 | Mineur | Mesures ADC | Firmware |
+| 39 | Mineur | Job Gerber, contour | Fait |
+| 40, 41 | Suggestion | Détection de coupure, GPIO libres | 40 : couvert par VSW_ADC + C37 (firmware) ; 41 : fait (JTAG sur TP31 à TP34) |
+| 42 | Mineur | Empreinte SOP-4 des EL357N | Fait |
+| 43 | Mineur | Cuivre de l'AMS1117 | Fait |
+| 44 | Suggestion | Points de test | Fait (TP26 à TP29) |
+| 45 | Mineur | Composants au ras du bord | Devis |
+
 ## Base vérifiée
 
 | Contrôle | Résultat |
@@ -492,3 +537,173 @@ Audit critique avant commande JLCPCB, fait en lecture seule sur `pcb_power_contr
 | B4 | À compléter : vérifier qu'un reset de l'ESP32 ne perturbe pas le bus (point 36). |
 | P2.4 (seuil de surintensité) | Fragilisé par le point 29 : la résistance effective du shunt n'est pas 1 mΩ avec l'empreinte actuelle ; seuils à revalider après correction de l'empreinte. |
 | P3.3 (empreintes à vérifier) | LMR36510 non conforme (point 30), shunt non conforme (point 29) ; TOLL, ESP32, USB-C conformes. |
+
+---
+
+## Journal des corrections
+
+Chaque entrée dit ce qui a été modifié, où, et comment c'est vérifié. Les sauvegardes avant modification sont dans le commit `daace9a`.
+
+### 2026-11-26 — lot 1 (PCB et schéma, sans nouvelle pièce)
+
+Vérification après le lot : ERC 0, DRC 0 (zones recalculées), 0 élément non connecté, 0 écart de parité.
+
+- **Point 1** : sur J2 et J3, les textes « + » et « − » de l'empreinte sont permutés. Le « + » est maintenant à côté de la broche 1 (PACK_RAW sur J2, PACK_SW sur J3), le « − » à côté de la broche 2 (GND). Ajout de « +PACK » à côté de la broche 1 de J8 et J11. **Reste** : vérifier sur un vrai XT60PW-M où est le « + » moulé et câbler les fiches pack et moteur comme la carte.
+- **Point 6** : connexion pleine (sans rayons) imposée sur les pastilles J2.2 et J3.2 (GND), sur toutes les couches. In2 n'atteint toujours pas J3.2 (la zone PACK_SW de In2 l'entoure) ; F.Cu, In1 et B.Cu suffisent. Prévoir un fer puissant pour souder.
+- **Point 12** : 207 vias convertis de « buried » en traversants.
+- **Point 13** : empilement JLC 4 couches ajouté dans la carte : 35 µm extérieur, 17,5 µm intérieur, préimprégné 7628 de 0,2104 mm, noyau de 1,065 mm, épaisseur 1,6 mm. Le passage à 2 oz extérieur se décide au devis.
+- **Point 17** :
+  - textes ajoutés : « BIONX POWER CONTROL » et « v1.0 2026-11 » (au-dessus de TP16), avertissement « ATTENTION 42 V : + de J8 et J11 sous tension pack permanente » (bas gauche), brochage de J12 (« 3V3 TX RX GND ») et de J10 (« 1 GND 2 3V3 3 5V 4 CANH 5 CANL 6 WAKE ») ;
+  - traits de toutes les sérigraphies portés à 0,15 mm (150 textes) ;
+  - 31 références déplacées pour ne plus chevaucher de pastille ; il reste 25 sérigraphies coupées par le masque (JLC les rogne) et 18 chevauchements entre sérigraphies, sans effet électrique.
+  - Hauteur des références laissée à 0,8 mm : à 1,0 mm, les chevauchements augmenteraient.
+- **Point 20** : symboles d'alimentation renumérotés (#PWR001 à #PWR117, #FLG001 et #FLG002) ; l'avertissement « erreurs de numérotation » a disparu. Feuille 03 renommée « Alimentation 5 V accessoires ».
+- **Point 30** : U3 et U5 passent sur l'empreinte KiCad `HSOP-8-1EP_3.9x4.9mm_P1.27mm_EP2.41x3.1mm` (schéma et PCB). Le via FB de U3 est descendu de 0,25 mm (97,67 ; 102,27) pour garder 0,2 mm avec la pastille agrandie. La variante avec vias thermiques a été écartée pour l'instant : sa pastille en B.Cu court-circuite les pistes FB et ACCESSORY_EN qui passent sous les circuits. Les vias thermiques seront ajoutés avec la reprise des bucks (point 4).
+- **Point 32** : notes réécrites dans les feuilles racine, Accessoires, Alim_3V3, Alim_12V, CAN, USB, Power_Switch et Commande (feux en tension pack, 5 V accessoires, diviseurs 47k/20k et 82k/20k, seuils 39,7 A et 58,7 A, précharge 2 × 220 Ω, TVS SMCJ48A, mesure par IMON, cavalier J7 ouvert).
+- **Point 33** : le champ LCSC de BZ1 est vidé ; la référence d'achat est conservée dans un champ « Achat » (schéma et PCB). La BOM JLC ne contient plus BZ1.
+- **Point 39** : contour avec coins arrondis de 1,5 mm.
+
+### 2026-11-26 — lot 2 (nouvelles pièces : fusibles, découplage ESP32, condensateur tampon)
+
+Vérification après le lot : ERC 0, DRC 0, 0 élément non connecté, 0 écart de parité.
+
+- **Point 2** : F1 et F2 deviennent des fusibles non réarmables Littelfuse Nano2 **0451001.MRL** (1 A rapide, 125 V, pouvoir de coupure 50 A ; LCSC C3099, Extended, ≈0,32 USD). Symbole `Device:Fuse` à la place de `Device:Polyfuse`, empreinte `Fuse:Fuse_Littelfuse-NANO2-451_453`.
+  - F1 décalé de 0,25 mm vers la gauche (74,75 ; 86) et F2 de 0,75 mm (74,25 ; 98) pour dégager Q4 et Q6.
+  - Le via du drain de Q4 (J8 broche 2) passe de (78,33 ; 85,93) à (79,56 ; 87,45), sous Q4.
+  - L'arrivée PACK_RAW de F1 est reroutée : via déplacé en (75,6 ; 88,0), piste F.Cu vers la broche 1, piste B.Cu vers F2 et D2.
+  - Note des feux du schéma mise à jour.
+  - **Reste** [M] : courant d'appel des feux à la mise sous tension, pour vérifier qu'un fusible rapide de 1 A ne fond pas.
+- **Point 3** : ajout de **C35** (10 µF 0805, C15850) et **C36** (100 nF 0603, C14663) entre PWR_3V3 et GND, au bord droit, contre la broche 2 du module (C36 à environ 2 mm de la broche). Trois vias de couture GND déplacés pour leur faire de la place, un via GND ajouté entre les deux.
+  - **Non fait** : rapprocher le RC d'EN (R26, C23). La broche 3 est collée à la broche 2, le corps du module occupe la gauche et la bande de droite est maintenant prise par C35 et C36.
+- **Points 7 et 37** : ajout de **C37**, électrolytique aluminium **100 µF / 63 V** CMS 10 × 10,5 mm (CS1J101M-CRG10, LCSC C116430, Extended, ≈0,09 USD), sur PACK_RAW, dans la feuille 02.
+  - Placé en (88 ; 57,2) abs, juste au-dessus du polygone PACK_RAW et à côté de J2 : la pastille + est dans le polygone, la pastille − dans la masse F.Cu, avec 4 vias GND.
+  - Un via de couture PACK_RAW et 6 vias GND qui tombaient sous les pastilles ont été retirés.
+  - Ordre de grandeur : 120 A coupés avec 2 µH de câble donnent environ +17 V au lieu d'environ +100 V sans C37.
+  - **Reste** [M] : mesurer au banc la pointe à TP15 au branchement du pack et à la coupure.
+
+### 2026-11-26 — lot 3 (shunt, mesure Kelvin, filtre ISCP)
+
+Vérification après le lot : ERC 0, DRC 0, 0 élément non connecté, 0 écart de parité.
+
+- **Point 29** : nouvelle empreinte `BionX:R_Shunt_2512_Kelvin_RLP25`, d'après la fiche TA-I (pastilles 3,1 × 4,0 mm, écart 1,3 mm). Chaque pastille est partagée entre la force (pastilles 1 et 4, 3,1 × 2,85 mm) et la prise Kelvin (pastilles 2 et 3, 1,65 × 0,85 mm), placée du côté intérieur de la borne, contre le corps de la résistance. R1 reste en (91 ; 67,4).
+- **Point 5** :
+  - **Paire KP / KN** : les deux prises descendent côte à côte entre les polygones PACK_RAW et SENSE, passent en B.Cu sous la piste PACK_RAW de 0,6 mm (x 90,6 et 91,4, pas de 0,8 mm), puis reviennent en F.Cu en paire serrée (0,2 / 0,2 mm, y 77,2 et 77,6) jusqu'à U1. KP ne traverse plus les polygones SENSE et FET_SRC.
+  - **R9 (RSET) et R10 (RISCP)** sont remontés contre U1, en (116,3 ; 78,3) et (116,3 ; 79,9). CS+, ISCP et KN arrivent sur les broches 18, 19 et 17 par l'intérieur du boîtier ; CS+ fait un saut en B.Cu pour croiser ISCP.
+  - **C38** : ajout d'un 1 nF 0402 X7R (0402B102K500NT, LCSC C1523, Basic) entre ISCP et CS− (SHUNT_KN), comme le recommande TI (§9.5). Placé en (113,85 ; 81,9), à cheval sur les pistes KN et ISCP, à 2 mm de U1. Dans le schéma, il est relié par une étiquette « ISCP » (le net `Net-(U1-ISCP)` s'appelle maintenant `/01  Commutation et précharge/ISCP`). Constante de temps avec R10 : 3,3 kΩ × 1 nF = 3,3 µs ; la protection contre les courts-circuits répond donc en environ 4 à 5 µs au lieu de 1,2 µs.
+  - **Surface de la boucle de mesure** : environ 13 mm² au lieu d'environ 153 mm².
+  - **Modifications voisines** :
+    - via INP_G descendu de 0,36 mm, en (103,23 ; 78,45) ;
+    - via FLT_T déplacé en (112,55 ; 85,6) ;
+    - un via GND sous U1 et 7 vias de couture GND du couloir retirés ;
+    - deux vias PACK_RAW devenus orphelins sous l'ancien shunt retirés ;
+    - **TP21 (TMR) passe en face arrière** en (97,5 ; 78,85), avec un via, faute de place en face avant (12 points de test en face arrière au lieu de 11).
+  - **Reste** [M] : mesurer au banc la résistance effective vue entre KP et KN (courant connu), puis revalider les seuils de 39,7 A et 58,7 A.
+
+### 2026-11-26 — lot 4 (boucles des bucks)
+
+Vérification après le lot : ERC 0, DRC 0, 0 élément non connecté, 0 écart de parité.
+
+- **Point 4** :
+  - **Bootstrap** : C4 (U3) et C15 (U5) passent en 0402 100 nF 50 V X7R (CL05B104KB54PNC, LCSC C307331, Basic) et sont collés aux broches 7 et 8, en (102,25 ; 98,73) et (102,25 ; 112,73). Ils étaient à environ 14 mm, en (114 ; 95,5) et (114 ; 112,5).
+  - **Nœuds SW** : les vias et les pistes B.Cu qui menaient le nœud SW jusqu'à ces condensateurs sont supprimés. Chaque nœud SW se limite maintenant à la broche 8, au condensateur de bootstrap et à la pastille de l'inductance. IMON_ADC n'a plus de nœud SW à proximité en B.Cu.
+  - **VCC** : C3 (U3) et C14 (U5) passent en 0402 1 µF 25 V X5R (CL05A105KA5NQNC, LCSC C52923, Basic), collés à la broche 6 en (102,25 ; 101,27) et (102,25 ; 115,27). Leur GND rejoint In1 par un via de 0,2 mm en (103,6 ; 102,3) et (103,6 ; 116,3). C3 était à environ 5 mm et C14 à environ 13 mm.
+  - **Vias thermiques** : 4 vias de 0,2 / 0,45 mm dans la pastille thermique de U3 et de U5, vers In1 (GND), placés hors des pistes FB et ACCESSORY_EN qui passent dessous en B.Cu.
+  - **Non fait** : rapprocher C12 (2,2 µF d'entrée de U5, toujours en (115 ; 116,5)). La place à gauche de U5 est prise par C13, R23, l'arrivée PACK_RAW et les pistes ACCESSORY_EN, FB, DALY et BMS. Le 5 V ne débite que quelques dizaines de mA ; C13 (100 nF) reste à environ 6 mm de VIN. À reprendre si la CEM pose problème au banc.
+
+### 2026-11-26 — lot 5 (TVS CAN) et arrêt de la session
+
+Vérification : ERC 0, DRC 0, 0 élément non connecté, 0 écart de parité.
+
+- **Point 9** : D1 (PESD1CAN) passe en « non monté », dans le schéma et le PCB (hors BOM). Il n'existe pas au catalogue JLC de TVS CAN en SOT-23 qui tienne 42 V. Le TCAN3413 tient seul ±58 V de défaut sur le bus et ±10 kV IEC 61000-4-2. L'empreinte est gardée : on peut souder une PESD2CAN24 si on estime qu'un court-circuit du câble moteur sur le pack est improbable.
+
+**Reste à traiter** (session interrompue par la limite d'usage), dans cet ordre :
+1. Point 11 : MMBT3904 sur DIODE (U1 broche 10, aujourd'hui reliée à la GND par le fil (184,15 ; 175,26)-(184,15 ; 180,34) de la feuille 01), à placer contre Q1.
+2. Point 8 et point 42 : isolement BMS (zone sans cuivre sous U12 et U13, classe de nets BMS), empreinte SOP-4 au motif Everlight.
+3. Point 10 : zone sans cuivre de 3,5 mm autour des trous et paire CAN éloignée de H1.
+4. Points 14, 15, 16, 31, 36, 43, 44, puis les suggestions 22 à 28, 35, 40 et 41.
+5. Point 3 (RC d'EN) et point 4 (C12) : laissés en place faute de place.
+
+### 2026-11-26 — lot 6 (protection thermique, isolement BMS, optocoupleurs)
+
+Vérification après le lot : ERC 0, DRC 0 (y compris la nouvelle règle d'isolement BMS), 0 élément non connecté, 0 écart de parité.
+
+- **Point 11** :
+  - Schéma, feuille 01 : la broche DIODE de U1 n'est plus à la GND. Ajout de **Q9** (MMBT3904, SOT-23, LCSC C20526, Basic ; base et collecteur sur DIODE, émetteur à la GND) et de **C39** (1 nF 0402, C1523) en parallèle.
+  - PCB : Q9 est collé sous le drain de Q1, en (105,3 ; 74,5), entre les polygones SENSE et FET_SRC (Q1 est le MOSFET le plus chaud, à côté du shunt). C39 est sous la broche 10 de U1, en (110,9 ; 89,75), avec un via GND.
+  - La ligne DIODE fait un détour d'environ 50 mm (6 vias) : la barrière formée en B.Cu par MAIN_ON et FLT_T sous U1 interdit un chemin direct. C'est acceptable pour cette ligne (courant de 10 / 160 µA, filtrée par C39), mais à reprendre si la lecture de température est bruitée.
+  - FLT_T (GPIO18) signale maintenant un dépassement de 150 °C au niveau de Q9, et le TPS48111 coupe Q1 et Q2 de lui-même.
+- **Point 42** : nouvelle empreinte `BionX:SOP-4_EL357N_Everlight` (pastilles 1,5 × 0,6 mm, centres à ±3,175 mm, 4,85 mm entre rangées), affectée à U12 et U13.
+- **Point 8** : bloc de l'UART DALY entièrement replacé et reroutée :
+  - U12 tourné de 90° et U13 de 270° : leurs côtés BMS (LED de U12, transistor de U13) sont maintenant en bas, face à J12, et leurs côtés ESP32 en haut. La barrière passe horizontalement au milieu des boîtiers.
+  - J12 déplacé en (78,5 ; 127,8), sous les optocoupleurs ; R42 et R45 (côté BMS) entre les deux ; R43 et R44 (côté ESP32) au-dessus ; TP9 et TP10 (face arrière) au-dessus.
+  - Nouvelle classe de nets **BMS** (`*BMS_*`, `Net-(R42-Pad2)`) et règle de conception `BionX_Power_Control.kicad_dru` : **0,5 mm minimum entre un net BMS et tout autre net**, sur toutes les couches. Elle passe sans violation.
+  - Zones interdites aux plans (`ISOLEMENT_BMS_F`, `_In1`, `_In2`, `_B`) à 1 mm autour de tout le cuivre BMS : aucun plan de masse de la carte sous le domaine BMS, sur aucune couche.
+  - L'arrivée PACK_RAW de U5 (via et piste vers C13) a été décalée pour s'écarter de U13.
+  - Textes de sérigraphie déplacés (« 42 V PERMANENT / SUR + DE J8, J11 », « J12 DALY : 3V3 TX RX GND »).
+  - Le routage de ce bloc a été fait par un petit routeur A* écrit pour l'occasion (grille 0,1 mm, F.Cu et B.Cu, règles du projet), puis vérifié par le DRC de KiCad.
+
+### 2026-11-26 — lot 7 (trous de fixation, AMS1117, vias, isolement HV, FLT, points de test)
+
+Vérification après le lot : ERC 0, DRC 0 (règles BMS et HV comprises), 0 élément non connecté, 0 écart de parité.
+
+- **Point 10** : zones interdites `FIXATION_H1` à `_H4` (rayon 3,5 mm, F.Cu et B.Cu : ni piste, ni via, ni plan) autour des quatre trous. 15 vias GND retirés. La paire CAN est redescendue en y = 59,0 / 59,4 pour s'écarter de H1.
+- **Point 14** : C28 devient un tantale 10 µF 16 V, TAJA106K016RNJ (LCSC C7171, Basic), empreinte `CP_EIA-3216-18_Kemet-A`. Son ESR place l'AMS1117 dans sa zone de stabilité.
+- **Point 43** : zone `USB_3V3_F` (priorité 6) en F.Cu, rectangle (123,9 ; 108)-(127,4 ; 113), sous la languette de U9. L'ancienne zone B.Cu et le via qui la reliait sont supprimés.
+- **Point 31** :
+  - vias retirés ou déplacés hors des pastilles : U8.2 (GND, via sous le boîtier en (106,35 ; 124,5)), R34.2, languette de U9, U4.12 (TEMP_ADC, via déplacé en (170,1 ; 110,39)) ;
+  - exception : le via WAKE_RAW de R46.2 (131,6 ; 118,6) reste en bord de pastille. Les pistes DALY_TX, MCU_BOOT, IMON_ADC et FRONT_LED_EN l'entourent, il n'y a pas d'autre place. Les vias sont bouchés (tenting) des deux côtés, donc l'étain ne descend pas dedans ; à surveiller à l'inspection de la première série.
+- **Point 15** : nouvelle règle « Isolement HV » dans `BionX_Power_Control.kicad_dru` : **0,3 mm minimum entre un net au potentiel du pack et un net basse tension**, sur toutes les couches. Nets HV : PACK_RAW, PACK_SW, SENSE, SHUNT_KP, SHUNT_KN, J8 / J11, Q3-D, FET_SRC, MAIN_GATE, PRE_GATE, VS_FILTERED, ISCP, BST, CS+, PU.
+  - Choix de 0,3 mm et pas 0,4 à 0,5 mm : IPC-2221B, tableau 6-1, demande 0,13 mm pour 31 à 50 V sous vernis (B4) et 0,6 mm sur cuivre nu (B2). Toutes les pistes sont sous vernis, et l'écart minimal entre pastilles nues HV et BT est déjà de 0,64 mm. 0,3 mm donne plus de deux fois la marge sous vernis. À 0,4 mm, 34 conflits imposaient de reprendre tout le placement autour de U1, U3 et U5.
+  - 8 conflits corrigés :
+    - VS_FILTERED décalé sous C9 (y = 82,15) ;
+    - via GND de C9 déplacé en (120,45 ; 79,85) ;
+    - INP_G écarté de SHUNT_KN (y = 78,12) ;
+    - via FLT_I déplacé en (116,46 ; 89,08) ;
+    - TP5 décalé de 0,5 mm le long de sa piste.
+  - Les nets à 42 V restent entre eux à 0,2 mm (même domaine).
+- **Point 36** (partiel) :
+  - Schéma, feuille 04 : **R58** et **R59**, 1 kΩ 0402 (0402WGF1001TCE, LCSC C11702, Basic), en série entre U4 (GPIO17, GPIO18) et les étiquettes POWER_FLT_I / POWER_FLT_T. Le tirage, J4, TP5 / TP6 et U1 restent côté TPS48111. L'impulsion haute de GPIO18 au démarrage est maintenant limitée à 3,3 mA.
+  - PCB : R58 et R59 placées entre J4 et le module, en (146,6 ; 110,4) et (147,4 ; 112) ; nouveaux nets `Net-(U4-IO17)` et `Net-(U4-IO18)`.
+  - **Reste** : déplacer CAN_STB (GPIO6) et CAN_TX (GPIO4) sur des GPIO sans impulsion au démarrage (21, 39 à 42). Cela change le brochage du firmware : à décider, sinon à vérifier au banc (B4).
+- **Point 44** : quatre points de test D1,0 mm, hors BOM :
+  - **TP26** BST, face avant, sur la piste en (119,6 ; 86,4) ;
+  - **TP27** SW_3V3, **TP28** SW_5V, **TP29** USB_3V3, face arrière, avec un via sur la piste.
+  - Les nets anonymes ont reçu un nom (`BST`, `SW_3V3`, `SW_5V`) ; classes de nets et règle HV mises à jour.
+- **Point 16** (non traité) : la seule place libre pour C10 est à 2,6 mm de U1.12 (au lieu de 9 mm), mais il faudrait passer BST sous PRE_GATE par deux vias. Le gain est faible pour une pompe de charge qui commute rarement. Les 0 Ω de grille demandent aussi de reprendre le placement de Q1 / Q2. À faire si on reprend la zone U1.
+
+**Reste à traiter** :
+- point 36 : choix des GPIO du CAN (firmware) ;
+- point 16 : placement autour de U1 ;
+- point 34 : modèles 3D (téléchargement des STEP à valider) ;
+- point 3 (RC d'EN) et point 4 (C12) : pas de place ;
+- point 21 et suggestions 22 à 28, 35, 40, 41.
+
+### 2026-11-27 — lot 8 (suggestions, documentation, BOM)
+
+Vérification après le lot : ERC 0, DRC 0 (règles BMS et HV comprises), 0 élément non connecté, 0 écart de parité.
+
+- **Point 27** (thermique de Q1) : nouvelle zone SENSE en **B.Cu**, copie de celles de F.Cu et In2 (rectangle (92,9 ; 53,2)-(103,3 ; 74,6), priorité 5), et 9 vias SENSE (0,6 / 0,3 mm) en (99,6 / 101,1 / 102,6 ; 59,6 / 61,1 / 73,6), juste à côté de la languette de drain de Q1. Jusqu'ici, les seuls vias SENSE étaient près du shunt. La chaleur du drain de Q1 passe maintenant par les trois couches F, In2 et B.
+- **Point 41** (GPIO libres) : **TP31 à TP34** (D1,0 mm, face arrière, hors BOM) sur GPIO39 à 42, c'est-à-dire **le JTAG de l'ESP32-S3** (MTCK, MTDO, MTDI, MTMS). Ils servent de réserve et permettent de déboguer avec une sonde JTAG sans USB. Nets nommés `JTAG_MTCK`, `JTAG_MTDO`, `JTAG_MTDI`, `JTAG_MTMS` (feuille 04).
+  - GPIO21 n'a pas de pastille : REAR_LED_EN passe à 0,2 mm au-dessus de sa broche et le module est en dessous, aucune sortie n'est possible.
+  - GPIO45 reste libre et sans tirage (broche de configuration).
+- **Point 40** (détection de coupure) : pas de nouveau diviseur sur GPIO3. Le cuivre PACK_RAW le plus proche est à environ 50 mm, de l'autre côté de la carte. Le diviseur existant VSW_ADC (PACK_SW, GPIO7) voit déjà la tension s'effondrer quand le pack disparaît, et c'est le seul cas où l'odomètre avance. C37 (100 µF) tient le buck 3,3 V pendant quelques millisecondes. **Le firmware doit** surveiller VSW_ADC (seuil et pente) et écrire l'odomètre dès qu'il voit la chute. Le préavis réel est à mesurer au banc [M].
+- **Point 25** (terminaison CAN) : J7 reste ouvert. C'est noté dans `BOM.md` ; le cavalier y est signalé comme pièce à acheter à part.
+- **Point 21** :
+  - `BOM.md` corrigé (prix de Q1 / Q2 à 2,07 USD, cavalier de J7, rondelle DIN 433 pour la vis de H1) ;
+  - **`BOM_BionX_Power_Control.csv` réexporté** depuis le schéma corrigé : fusibles Nano2, C28 tantale, C35 à C39, Q9, R58 / R59, empreintes du shunt, des EL357N et des LMR36510 ; D1, J4 et J5 en DNP.
+- **Point 44, reprise** : les vias de TP27 (SW_3V3) et TP28 (SW_5V) touchaient les pastilles de L1 et L2. Ils sont déplacés en (102,9 ; 97,6) et (102,95 ; 112,47), sur la piste SW, hors de toute pastille.
+- **Non traités, décision à prendre** :
+  - 22 : diode série et TVS locale pour les bucks (composants de puissance à placer) ;
+  - 23 : comparateur de surtension sur VSW (circuit nouveau) ;
+  - 24 : PTC et TVS sur le 3,3 V et le 5 V exportés vers J10 ;
+  - 26 : 5e trou de fixation, serre-câbles, guide de lumière (dépend du boîtier) ;
+  - 28 : chien de garde externe ;
+  - 35 : diviseur de 1 MΩ (gain d'environ 5 µA seulement).
+
+**Reste à traiter après le lot 8** :
+- point 36 : GPIO du CAN (firmware) ;
+- point 16 : placement autour de U1 ;
+- point 34 : modèles 3D (téléchargement à valider) ;
+- points 3 et 4 : faute de place ;
+- suggestions 22, 23, 24, 26, 28 et 35 : à décider.
+

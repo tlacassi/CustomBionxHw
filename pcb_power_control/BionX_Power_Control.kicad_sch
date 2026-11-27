@@ -20,7 +20,7 @@
 		)
 		(uuid "439c65b6-39a6-4de1-b623-f75624c6131f")
 	)
-	(text "Pack 10S  |  CAN BionX  |  Feu arrière 12 V / 200 mA  |  Buzzer 5 V"
+	(text "Pack 10S (42 V max)  |  CAN BionX 125 kbit/s  |  Feux avant et arrière en tension pack  |  Buzzer 5 V"
 		(exclude_from_sim no)
 		(at 30.48 39.37 0)
 		(effects
@@ -31,7 +31,7 @@
 		)
 		(uuid "9a73cc6b-46e9-49be-8115-49884daf0928")
 	)
-	(text "Le 3,3 V reste alimenté. Le 12 V accessoires est commandé par le module ESP32-S3."
+	(text "Le 3,3 V reste alimenté en permanence. Le 5 V accessoires (faisceau, buzzer) est commandé par l'ESP32-S3 (ACCESSORY_EN)."
 		(exclude_from_sim no)
 		(at 30.48 48.26 0)
 		(effects
@@ -207,7 +207,7 @@
 			(color 0 0 0 0)
 		)
 		(uuid "a182a68b-9941-493d-93e8-692444cf910e")
-		(property "Sheetname" "03  Alimentations accessoires 12 V et 5 V"
+		(property "Sheetname" "03  Alimentation 5 V accessoires"
 			(at 30.48 102.87 0)
 			(show_name no)
 			(do_not_autoplace no)

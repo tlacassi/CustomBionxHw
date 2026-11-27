@@ -116,3 +116,24 @@ Toutes les pièces ajoutées sont **Basic**, sauf le connecteur, soudé à la ma
 - La fiche LCSC de C14663 affichait un stock à 0 le 2026-11-17, mais c'est la 100 nF 0603 Basic standard de JLCPCB. À recontrôler au devis ; l'alternative est CL10B104KB8NNNC (C1591, Extended).
 - Les GPIO 8, 9 et 16 sont maintenant pris (sonde et LED), contrairement à la mention « libérés » de la section précédente.
 - À acheter à part : une sonde CTN 10 kΩ B3950 et un boîtier XH 2 points avec deux contacts.
+
+## Mise à jour du 2026-11-27 — corrections de l'audit (Power Control)
+
+`BOM_BionX_Power_Control.csv` est réexporté depuis le schéma corrigé (détail dans `AUDIT_PCB_POWER_CONTROL.md`, journal des lots 1 à 8). Pièces ajoutées ou changées :
+
+| Repère | Pièce | LCSC |
+|---|---|---|
+| F1, F2 | Fusible Littelfuse 0451001.MRL (Nano2, 1 A, 125 V) au lieu des PTC | C3099 |
+| C28 | Tantale 10 µF 16 V TAJA106K016RNJ | C7171 |
+| C35, C36 | 10 µF 0805 et 100 nF 0603 au pied du 3,3 V de l'ESP32 | C15850, C14663 |
+| C37 | Électrolytique 100 µF 63 V CS1J101M-CRG10 sur PACK_RAW | C116430 |
+| C38, C39 | 1 nF 0402 (filtre ISCP, filtre DIODE) | C1523 |
+| C3, C14 / C4, C15 | Bucks : 1 µF 0402 et 100 nF 0402 50 V contre les broches | C52923, C307331 |
+| Q9 | MMBT3904, capteur de température du TPS48111 | C20526 |
+| R58, R59 | 1 kΩ 0402 en série sur FLT_I et FLT_T | C11702 |
+| D1 | PESD1CAN : **non monté** (empreinte gardée) | — |
+
+Autres corrections (point 21 de l'audit) :
+- **Prix de Q1 et Q2** : l'index JLC donne 2,07 USD pièce, pas 1,25 USD. Le total de la révision du 2026-11-16 est donc sous-estimé d'environ 1,6 USD par carte.
+- **Cavalier de J7** : la barrette est dans la BOM, mais pas le cavalier lui-même (cavalier 2,54 mm, à acheter à part). Power Control étant au milieu du bus CAN (Display — Power Control — moteur), **J7 reste ouvert** ; la terminaison se fait au Display et au moteur (audit, point 25).
+- **Vis de H1** : la rondelle d'une vis M3 standard (Ø 7 mm) arrive au ras du boîtier de J10. Utiliser une rondelle étroite DIN 433 (Ø 6 mm) ou une rondelle nylon.

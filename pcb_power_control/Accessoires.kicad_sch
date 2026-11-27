@@ -9,7 +9,7 @@
 		(rev "0.3")
 	)
 	(lib_symbols
-		(symbol "Device:Polyfuse"
+		(symbol "Device:Fuse"
 			(pin_numbers
 				(hide yes)
 			)
@@ -22,7 +22,7 @@
 			(in_pos_files yes)
 			(duplicate_pin_numbers_are_jumpers no)
 			(property "Reference" "F"
-				(at -2.54 0 90)
+				(at 2.032 0 90)
 				(show_name no)
 				(do_not_autoplace no)
 				(effects
@@ -31,8 +31,8 @@
 					)
 				)
 			)
-			(property "Value" "Polyfuse"
-				(at 2.54 0 90)
+			(property "Value" "Fuse"
+				(at -1.905 0 90)
 				(show_name no)
 				(do_not_autoplace no)
 				(effects
@@ -42,7 +42,7 @@
 				)
 			)
 			(property "Footprint" ""
-				(at 1.27 -5.08 0)
+				(at -1.778 0 90)
 				(show_name no)
 				(do_not_autoplace no)
 				(hide yes)
@@ -50,7 +50,6 @@
 					(font
 						(size 1.27 1.27)
 					)
-					(justify left)
 				)
 			)
 			(property "Datasheet" ""
@@ -64,7 +63,7 @@
 					)
 				)
 			)
-			(property "Description" "Resettable fuse, polymeric positive temperature coefficient"
+			(property "Description" "Fuse"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -75,7 +74,7 @@
 					)
 				)
 			)
-			(property "ki_keywords" "resettable fuse PTC PPTC polyfuse polyswitch"
+			(property "ki_keywords" "fuse"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -86,7 +85,7 @@
 					)
 				)
 			)
-			(property "ki_fp_filters" "*polyfuse* *PTC*"
+			(property "ki_fp_filters" "*Fuse*"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -97,22 +96,10 @@
 					)
 				)
 			)
-			(symbol "Polyfuse_0_1"
-				(polyline
-					(pts
-						(xy -1.524 2.54) (xy -1.524 1.524) (xy 1.524 -1.524) (xy 1.524 -2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
+			(symbol "Fuse_0_1"
 				(rectangle
-					(start -0.762 2.54)
-					(end 0.762 -2.54)
+					(start -0.762 -2.54)
+					(end 0.762 2.54)
 					(stroke
 						(width 0.254)
 						(type default)
@@ -134,7 +121,7 @@
 					)
 				)
 			)
-			(symbol "Polyfuse_1_1"
+			(symbol "Fuse_1_1"
 				(pin passive line
 					(at 0 3.81 270)
 					(length 1.27)
@@ -1743,7 +1730,7 @@
 			(embedded_fonts no)
 		)
 	)
-	(text "BUZZER PIÉZO ACTIF / 5 V"
+	(text "BUZZER ACTIF / 5 V"
 		(exclude_from_sim no)
 		(at 146.05 44.45 0)
 		(effects
@@ -1754,7 +1741,7 @@
 		)
 		(uuid "17642292-2a47-4f80-8917-a01f24b7b0c2")
 	)
-	(text "BZ1 : buzzer piézo actif 5 V. Référence et courant à confirmer."
+	(text "BZ1 : buzzer actif 5 V TMB12A05 (≈30 mA), traversant, soudé main."
 		(exclude_from_sim no)
 		(at 34.29 146.05 0)
 		(effects
@@ -1765,7 +1752,7 @@
 		)
 		(uuid "20ad9da7-4a9c-433f-8ed1-76780553aad3")
 	)
-	(text "External 12 V lamp with its own current regulation. J8 pin 2 is switched return."
+	(text "Feux 12–60 V avec leur propre régulation. Broche 1 = + tension pack PERMANENTE (via fusible), broche 2 = retour commuté par le MOSFET."
 		(exclude_from_sim no)
 		(at 33.02 135.89 0)
 		(effects
@@ -1776,7 +1763,7 @@
 		)
 		(uuid "38e7bdd6-d581-4d2b-a282-2c8ee04b59d3")
 	)
-	(text "06   REAR LIGHT / 12 V / 200 mA"
+	(text "06   FEUX AVANT ET ARRIÈRE / TENSION PACK"
 		(exclude_from_sim no)
 		(at 33.02 44.45 0)
 		(effects
@@ -2210,7 +2197,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "077cdf55-f113-42b0-83e9-13db5c8e6f8d")
-		(property "Reference" "#PWR338"
+		(property "Reference" "#PWR001"
 			(at 84.28 117.65 0)
 			(hide yes)
 			(show_name no)
@@ -2268,13 +2255,13 @@
 		(instances
 			(project "bionxHW"
 				(path "/00b756a7-975b-4f5a-95d6-4519feedeb50/1099941e-a455-4ae0-a26b-55d7edd7db02/99c7b1d4-6444-426b-8b39-866f45c9f662"
-					(reference "#PWR338")
+					(reference "#PWR001")
 					(unit 1)
 				)
 			)
 			(project "BionX_Power_Control"
 				(path "/e3518469-2023-4ad5-b1bd-81745f6fca11/99c7b1d4-6444-426b-8b39-866f45c9f662"
-					(reference "#PWR338")
+					(reference "#PWR001")
 					(unit 1)
 				)
 			)
@@ -2396,7 +2383,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "28b235bf-48f7-4c54-b7c5-0ba3ae4e1f1d")
-		(property "Reference" "#PWR340"
+		(property "Reference" "#PWR002"
 			(at 203.66 106.22 0)
 			(hide yes)
 			(show_name no)
@@ -2454,13 +2441,13 @@
 		(instances
 			(project "bionxHW"
 				(path "/00b756a7-975b-4f5a-95d6-4519feedeb50/1099941e-a455-4ae0-a26b-55d7edd7db02/99c7b1d4-6444-426b-8b39-866f45c9f662"
-					(reference "#PWR340")
+					(reference "#PWR002")
 					(unit 1)
 				)
 			)
 			(project "BionX_Power_Control"
 				(path "/e3518469-2023-4ad5-b1bd-81745f6fca11/99c7b1d4-6444-426b-8b39-866f45c9f662"
-					(reference "#PWR340")
+					(reference "#PWR002")
 					(unit 1)
 				)
 			)
@@ -2477,7 +2464,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "36386c65-2189-4fb6-a846-be669755bee2")
-		(property "Reference" "#PWR341"
+		(property "Reference" "#PWR003"
 			(at 188.42 117.65 0)
 			(hide yes)
 			(show_name no)
@@ -2535,13 +2522,13 @@
 		(instances
 			(project "bionxHW"
 				(path "/00b756a7-975b-4f5a-95d6-4519feedeb50/1099941e-a455-4ae0-a26b-55d7edd7db02/99c7b1d4-6444-426b-8b39-866f45c9f662"
-					(reference "#PWR341")
+					(reference "#PWR003")
 					(unit 1)
 				)
 			)
 			(project "BionX_Power_Control"
 				(path "/e3518469-2023-4ad5-b1bd-81745f6fca11/99c7b1d4-6444-426b-8b39-866f45c9f662"
-					(reference "#PWR341")
+					(reference "#PWR003")
 					(unit 1)
 				)
 			)
@@ -2915,6 +2902,17 @@
 				)
 			)
 		)
+		(property "Achat" "LCSC C96093, soudé main (hors assemblage JLC)"
+			(at 215.9 68.58 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1 1)
+				)
+			)
+		)
 		(property "Datasheet" ""
 			(at 215.9 68.58 0)
 			(show_name no)
@@ -2946,7 +2944,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C96093"
+		(property "LCSC" ""
 			(at 215.9 68.58 0)
 			(hide yes)
 			(show_name no)
@@ -3105,7 +3103,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "ab5b543a-0d82-4c13-9e03-0d6ec33c8e64")
-		(property "Reference" "#PWR342"
+		(property "Reference" "#PWR004"
 			(at 216.36 63.04 0)
 			(hide yes)
 			(show_name no)
@@ -3163,13 +3161,13 @@
 		(instances
 			(project "bionxHW"
 				(path "/00b756a7-975b-4f5a-95d6-4519feedeb50/1099941e-a455-4ae0-a26b-55d7edd7db02/99c7b1d4-6444-426b-8b39-866f45c9f662"
-					(reference "#PWR342")
+					(reference "#PWR004")
 					(unit 1)
 				)
 			)
 			(project "BionX_Power_Control"
 				(path "/e3518469-2023-4ad5-b1bd-81745f6fca11/99c7b1d4-6444-426b-8b39-866f45c9f662"
-					(reference "#PWR342")
+					(reference "#PWR004")
 					(unit 1)
 				)
 			)
@@ -3186,7 +3184,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "f73211a7-86b3-4b7e-93b5-80f341e395ad")
-		(property "Reference" "#PWR337"
+		(property "Reference" "#PWR005"
 			(at 99.52 106.22 0)
 			(hide yes)
 			(show_name no)
@@ -3244,13 +3242,13 @@
 		(instances
 			(project "bionxHW"
 				(path "/00b756a7-975b-4f5a-95d6-4519feedeb50/1099941e-a455-4ae0-a26b-55d7edd7db02/99c7b1d4-6444-426b-8b39-866f45c9f662"
-					(reference "#PWR337")
+					(reference "#PWR005")
 					(unit 1)
 				)
 			)
 			(project "BionX_Power_Control"
 				(path "/e3518469-2023-4ad5-b1bd-81745f6fca11/99c7b1d4-6444-426b-8b39-866f45c9f662"
-					(reference "#PWR337")
+					(reference "#PWR005")
 					(unit 1)
 				)
 			)
@@ -3777,7 +3775,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "d155993f-f8c4-4b28-a74f-c536a5201544")
-		(property "Reference" "#PWR901"
+		(property "Reference" "#PWR006"
 			(at 83.82 175.26 0)
 			(hide yes)
 			(show_name no)
@@ -3837,13 +3835,13 @@
 		(instances
 			(project "bionxHW"
 				(path "/00b756a7-975b-4f5a-95d6-4519feedeb50/1099941e-a455-4ae0-a26b-55d7edd7db02/99c7b1d4-6444-426b-8b39-866f45c9f662"
-					(reference "#PWR901")
+					(reference "#PWR006")
 					(unit 1)
 				)
 			)
 			(project "BionX_Power_Control"
 				(path "/e3518469-2023-4ad5-b1bd-81745f6fca11/99c7b1d4-6444-426b-8b39-866f45c9f662"
-					(reference "#PWR901")
+					(reference "#PWR006")
 					(unit 1)
 				)
 			)
@@ -3870,7 +3868,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "faf6620d-8bce-4694-995c-d906f2293cc8")
-		(property "Reference" "#PWR902"
+		(property "Reference" "#PWR007"
 			(at 99.06 163.83 0)
 			(hide yes)
 			(show_name no)
@@ -3930,13 +3928,13 @@
 		(instances
 			(project "bionxHW"
 				(path "/00b756a7-975b-4f5a-95d6-4519feedeb50/1099941e-a455-4ae0-a26b-55d7edd7db02/99c7b1d4-6444-426b-8b39-866f45c9f662"
-					(reference "#PWR902")
+					(reference "#PWR007")
 					(unit 1)
 				)
 			)
 			(project "BionX_Power_Control"
 				(path "/e3518469-2023-4ad5-b1bd-81745f6fca11/99c7b1d4-6444-426b-8b39-866f45c9f662"
-					(reference "#PWR902")
+					(reference "#PWR007")
 					(unit 1)
 				)
 			)
@@ -4003,7 +4001,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Package_SO:SOP-4_3.8x4.1mm_P2.54mm"
+		(property "Footprint" "BionX:SOP-4_EL357N_Everlight"
 			(at 190.5 152.4 0)
 			(hide yes)
 			(show_name no)
@@ -4117,7 +4115,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Package_SO:SOP-4_3.8x4.1mm_P2.54mm"
+		(property "Footprint" "BionX:SOP-4_EL357N_Everlight"
 			(at 190.5 177.8 0)
 			(hide yes)
 			(show_name no)
@@ -4554,7 +4552,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "38250fb4-8bcc-4627-9473-3bc326d40baf")
-		(property "Reference" "#PWR903"
+		(property "Reference" "#PWR008"
 			(at 200.66 156.21 0)
 			(hide yes)
 			(show_name no)
@@ -4614,13 +4612,13 @@
 		(instances
 			(project "bionxHW"
 				(path "/00b756a7-975b-4f5a-95d6-4519feedeb50/1099941e-a455-4ae0-a26b-55d7edd7db02/99c7b1d4-6444-426b-8b39-866f45c9f662"
-					(reference "#PWR903")
+					(reference "#PWR008")
 					(unit 1)
 				)
 			)
 			(project "BionX_Power_Control"
 				(path "/e3518469-2023-4ad5-b1bd-81745f6fca11/99c7b1d4-6444-426b-8b39-866f45c9f662"
-					(reference "#PWR903")
+					(reference "#PWR008")
 					(unit 1)
 				)
 			)
@@ -5196,7 +5194,7 @@
 		(uuid "edf91eb0-3531-443e-9ddd-086c51c98137")
 	)
 	(symbol
-		(lib_id "Device:Polyfuse")
+		(lib_id "Device:Fuse")
 		(at 97.79 68.58 90)
 		(unit 1)
 		(body_style 1)
@@ -5216,7 +5214,7 @@
 				)
 			)
 		)
-		(property "Value" "PTC 0.5A / 60V"
+		(property "Value" "Fusible 1A 125V rapide"
 			(at 97.79 64.77 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5226,7 +5224,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Fuse:Fuse_1812_4532Metric"
+		(property "Footprint" "Fuse:Fuse_Littelfuse-NANO2-451_453"
 			(at 97.79 68.58 0)
 			(hide yes)
 			(show_name no)
@@ -5259,7 +5257,7 @@
 				)
 			)
 		)
-		(property "MPN" "SMD1812P050TF/60"
+		(property "MPN" "0451001.MRL"
 			(at 97.79 68.58 0)
 			(hide yes)
 			(show_name no)
@@ -5270,7 +5268,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C462518"
+		(property "LCSC" "C3099"
 			(at 97.79 68.58 0)
 			(hide yes)
 			(show_name no)
@@ -5335,7 +5333,7 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:Polyfuse")
+		(lib_id "Device:Fuse")
 		(at 97.79 124.46 90)
 		(unit 1)
 		(body_style 1)
@@ -5355,7 +5353,7 @@
 				)
 			)
 		)
-		(property "Value" "PTC 0.5A / 60V"
+		(property "Value" "Fusible 1A 125V rapide"
 			(at 97.79 120.65 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5365,7 +5363,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Fuse:Fuse_1812_4532Metric"
+		(property "Footprint" "Fuse:Fuse_Littelfuse-NANO2-451_453"
 			(at 97.79 124.46 0)
 			(hide yes)
 			(show_name no)
@@ -5398,7 +5396,7 @@
 				)
 			)
 		)
-		(property "MPN" "SMD1812P050TF/60"
+		(property "MPN" "0451001.MRL"
 			(at 97.79 124.46 0)
 			(hide yes)
 			(show_name no)
@@ -5409,7 +5407,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C462518"
+		(property "LCSC" "C3099"
 			(at 97.79 124.46 0)
 			(hide yes)
 			(show_name no)
@@ -5483,7 +5481,7 @@
 		)
 		(uuid "37fd751c-26b4-4af4-b2e6-45e04c06c58a")
 	)
-	(text "FEUX : + = tension pack (30-42 V) via PTC, commutation cote masse. Choisir des feux acceptant >= 42 V (plage 12-60 V)."
+	(text "FEUX : + = tension pack (30-42 V) PERMANENTE via fusible 1 A 125 V (Nano2 0451001, coupure 50 A), commutation cote masse. Feux acceptant >= 42 V (plage 12-60 V)."
 		(exclude_from_sim no)
 		(at 55.88 52.07 0)
 		(effects
