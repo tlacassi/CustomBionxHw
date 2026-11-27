@@ -28,21 +28,21 @@ Statuts : **Fait** (corrigé dans le schéma et/ou le PCB, vérifié par ERC, DR
 | 13 | Mineur | Empilement non défini | Fait (2 oz extérieur : choix au devis) |
 | 14 | Mineur | AMS1117 et céramique | Fait (C28 tantale 10 µF) |
 | 15 | Mineur | Classe de nets HV | Fait (règle à 0,3 mm, voir journal) |
-| 16 | Mineur | Bootstrap et grilles du TPS48111 | À faire : demande de reprendre le placement autour de U1 (pas de place libre) |
+| 16 | Mineur | Bootstrap et grilles du TPS48111 | Partiel : R61 (0 Ω) sur la grille de Q1 ; C10 laissé en place (pas de place près de U1) |
 | 17 | Mineur | Sérigraphie | Partiel : textes ajoutés, traits à 0,15 mm, références déplacées ; hauteur laissée à 0,8 mm |
 | 18 | Mineur | UART DALY : vitesse, veille | Banc / Firmware |
 | 19 | Mineur | Retour du 3,3 V en USB seul | Banc |
 | 20 | Mineur | Annotation, nom de feuille | Fait |
 | 21 | Mineur | Divers (H1/J10, prix, cavalier J7) | Fait (documentation : `BOM.md`, rondelle DIN 433 en H1) |
-| 22 à 28 | Suggestion | Diode série bucks, surtension VSW, faisceau, terminaison, mécanique, thermique Q1, chien de garde | 25 et 27 faits ; 22, 23, 24, 26 et 28 : décision à prendre (ajout de circuit ou de mécanique) |
+| 22 à 28 | Suggestion | Diode série bucks, surtension VSW, faisceau, terminaison, mécanique, thermique Q1, chien de garde | 25, 26 (trou H5 M2,5) et 27 faits ; 22, 23 et 28 écartés (voir lot 9) ; 24 en attente d'une mesure [M] |
 | 29 | Important | Empreinte du shunt | Fait ; résistance effective à mesurer au banc |
 | 30 | Important | Pastille thermique LMR36510 | Fait |
 | 31 | Mineur | Vias dans les pastilles | Fait, sauf R46.2 (via en bord de pastille, zone saturée, via bouché) |
 | 32 | Mineur | Notes du schéma périmées | Fait (note des feux à finir avec le point 2) |
 | 33 | Mineur | BOM et placement JLC (BZ1) | Fait |
-| 34 | Mineur | Modèles 3D | À faire |
-| 35 | Suggestion | Diviseur de retour du buck 3,3 V | Non retenu pour l'instant (gain ≈ 5 µA) |
-| 36 | Mineur | Impulsions des GPIO au démarrage | Partiel : R58 et R59 (1 k) ajoutées ; déplacement de CAN_STB / CAN_TX à décider (firmware) |
+| 34 | Mineur | Modèles 3D | À faire : téléchargement des STEP à valider |
+| 35 | Suggestion | Diviseur de retour du buck 3,3 V | Écarté (gain ≈ 5 µA, voir lot 9) |
+| 36 | Mineur | Impulsions des GPIO au démarrage | Fait : R58 / R59 sur FLT, filtre RC R60 / C40 sur STB (brochage du firmware inchangé) |
 | 37 | Important | Court-circuit franc en sortie | Fait (C37) ; à valider au banc avec alimentation limitée |
 | 38 | Mineur | Mesures ADC | Firmware |
 | 39 | Mineur | Job Gerber, contour | Fait |
@@ -706,4 +706,35 @@ Vérification après le lot : ERC 0, DRC 0 (règles BMS et HV comprises), 0 él�
 - point 34 : modèles 3D (téléchargement à valider) ;
 - points 3 et 4 : faute de place ;
 - suggestions 22, 23, 24, 26, 28 et 35 : à décider.
+
+### 2026-11-27 — lot 9 (points 36 et 16, suggestions 22 à 28 et 35)
+
+Vérification après le lot : ERC 0, DRC 0 (règles BMS et HV comprises), 0 élément non connecté, 0 écart de parité.
+
+- **Point 36, CAN** : filtre RC sur la broche STB du TCAN3413, **sans changer le brochage du firmware**.
+  - Schéma, feuille 05 :
+    - **R60** (10 kΩ 0402, C25744) en série entre l'étiquette CAN_STB (GPIO6, avec son tirage R28) et U7.8 ;
+    - **C40** (100 nF 0402 16 V, CL05B104KO5NNNC, C1525) entre U7.8 (nouveau net `STB_RC`) et le 3,3 V.
+  - Effet : τ = 1 ms. L'impulsion basse de 60 µs de GPIO6 au démarrage ne fait descendre STB qu'à environ 3,1 V, et le TCAN3413 reste en veille. Comme il ignore TXD en veille, l'impulsion de GPIO4 n'envoie plus de bits dominants sur le bus. Le condensateur est relié au 3,3 V et non à la masse : à la mise sous tension, STB suit le 3,3 V et démarre donc en veille.
+  - **Firmware** : après avoir mis STB à l'état bas, attendre environ 3 ms avant d'émettre. Le conflit de 60 µs sur CAN_RX (GPIO5 contre RXD) reste, mais il est sans danger.
+  - PCB : R60 à la verticale en (150,5 ; 80,3) et C40 en (149,1 ; 81,0), entre R28 et CANH. Le via CAN_STB est déplacé en (151,2 ; 80,2), hors des pistes B.Cu WAKE_RAW et PACK_5V_AUX.
+  - Variante essayée puis abandonnée : passer CAN_TX, CAN_RX et CAN_STB sur GPIO35 à 37 (libres sur le module N8, sans impulsion). Les pastilles de ces GPIO sont dans une poche fermée entre J4 et le module : il fallait rerouter POWER_ENABLE, PRECHARGE_ON et MAIN_ON (environ 80 mm chacun), et le résultat était pire (vias en série, conflits d'isolement HV près de U1).
+- **Point 16** :
+  - **R61** (0 Ω 0402, C17168) en série sur la grille de Q1 (net `Q1_G`, ajouté à la règle HV), en (113,3 ; 71,88). Elle se trouve dans la boucle grille Q1 – grille Q2, ce qui suffit à l'amortir ; la remplacer par 2,2 à 10 Ω si on voit une oscillation au banc.
+  - Pas de résistance sur Q2 : sa grille est sous le courtyard du boîtier TOLL, et la bande entre Q1 et Q2 est occupée par les vias de couture FET_SRC.
+  - C10 reste en place (voir lot 7).
+- **Suggestion 26** : trou de fixation **H5, M2,5** (perçage 2,7 mm), en (145,25 ; 94,5), entre U7 et J4, avec des zones `FIXATION_H5` sans cuivre (rayon 2,8 mm, F.Cu et B.Cu). C'est le seul disque libre de la moitié droite. Il ne passe pas en M3 : la tête de vis fait 5,5 mm, et il ne resterait que 0,05 mm de marge. Le boîtier doit prévoir un plot M2,5.
+  - Restent hors carte : serre-câbles des XT60, guide de lumière de D4, accès à SW1, SW2 et l'USB.
+- **Suggestion 22, écartée** : D2 (SMCJ48A, unidirectionnelle) est directement en travers du pack. Si le pack était branché à l'envers, elle conduirait en direct et le court-circuiterait avant toute autre chose. Une diode série sur les bucks ne protège donc de rien tant que D2 est là. C'est le détrompage du XT60 qui protège contre l'inversion. Quant aux transitoires, D2 et D3 les écrêtent déjà.
+- **Suggestion 23, écartée** : le TPS48111 n'a pas d'entrée de surtension. Surtout, ouvrir Q1 / Q2 sur une surtension de VSW déconnecterait le pack, c'est-à-dire la seule charge capable d'absorber l'énergie, en pleine régénération du moteur. La tension côté moteur monterait encore plus vite, et D3 devrait tout absorber seule. La limite de régénération relève du contrôleur moteur et du firmware (lecture de VSW_ADC).
+- **Suggestion 24, en attente** : il faut le courant actif de la carte Display sur J10.2 (3,3 V) et J10.3 (5 V) [M], absent de `POWER_BUDGET.md`. Une PTC ne protège pas : elle déclenche en secondes, alors que l'ESP32 maître décroche en millisecondes quand U3 entre en limitation. La bonne correction est un interrupteur à limitation de courant (famille TPS2553 / TPS25200), réglé d'après cette mesure. Le 5 V est déjà protégé par la limitation de courant de U5.
+- **Suggestion 28, écartée** : quand l'ESP32 redémarre (chien de garde interne ou brown-out), ses broches passent en haute impédance, et R15 à R17 ramènent POWER_ENABLE, PRECHARGE_ON et MAIN_ON à l'état bas : Q1 et Q2 s'ouvrent. Un chien de garde externe n'ajouterait que le cas d'un ESP32 bloqué sans redémarrage, déjà couvert par le chien de garde interne.
+- **Suggestion 35, écartée** : environ 5 µA de gain côté pack. Avec un diviseur de 1 MΩ, le nœud FB devient sensible au bruit, et TI recommande alors un condensateur d'avance de phase à dimensionner. Pas rentable.
+- `BOM_BionX_Power_Control.csv` réexporté (R60, R61, C40) et `BOM.md` mis à jour.
+
+**Reste à traiter après le lot 9** :
+- point 34 : modèles 3D (téléchargement des STEP chez LCSC / EasyEDA à valider) ;
+- suggestion 24 : mesure du courant du Display, puis choix de l'interrupteur limiteur ;
+- points 3 et 4 (RC d'EN, C12) et C10 (point 16) : faute de place ;
+- point 31 : exception de R46.2 (via en bord de pastille).
 

@@ -3176,16 +3176,6 @@
 	)
 	(wire
 		(pts
-			(xy 165.1 72.39) (xy 165.1 90.17)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "6c6c7554-db83-44df-a908-2e0ee5da5366")
-	)
-	(wire
-		(pts
 			(xy 125.73 144.78) (xy 115.57 144.78)
 		)
 		(stroke
@@ -3473,16 +3463,6 @@
 			(type default)
 		)
 		(uuid "d42cbf8e-b575-4045-88f3-4d1b8fc1c7ed")
-	)
-	(wire
-		(pts
-			(xy 260.35 52.07) (xy 260.35 57.15)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "d470f8bc-c85c-4e8b-9bb0-fc4faf24a2b2")
 	)
 	(wire
 		(pts
@@ -13270,6 +13250,173 @@
 			(justify right bottom)
 		)
 		(uuid "5303edde-b6bc-43eb-9ee9-adda305741f6")
+	)
+	(label "Q1_G"
+		(at 165.1 72.39 270)
+		(effects
+			(font
+				(size 1 1)
+			)
+			(justify right bottom)
+		)
+		(uuid "c8fd679a-7ceb-414e-9c09-53a23f2dee85")
+	)
+	(label "MAIN_GATE"
+		(at 165.1 90.17 90)
+		(effects
+			(font
+				(size 1 1)
+			)
+			(justify left bottom)
+		)
+		(uuid "d333a1ed-f218-449b-bf0c-f435b36911fa")
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 154.94 73.66 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "02d1ff64-15ba-4cce-8141-c8c4c59ac2b9")
+		(property "Reference" "R61"
+			(at 154.94 68.58 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1 1)
+				)
+			)
+		)
+		(property "Value" "0"
+			(at 154.94 78.74 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1 1)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
+			(at 154.94 73.66 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1 1)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 154.94 73.66 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 154.94 73.66 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "0402WGF0000TCE"
+			(at 154.94 73.66 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C17168"
+			(at 154.94 73.66 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "6c0a3777-fd35-4c0b-ad88-faf973da0bd3")
+		)
+		(pin "2"
+			(uuid "410a4311-8937-4d20-8b92-38e2a018eb23")
+		)
+		(instances
+			(project "bionxHW"
+				(path "/00b756a7-975b-4f5a-95d6-4519feedeb50/1099941e-a455-4ae0-a26b-55d7edd7db02/ed88a01a-3685-43c8-bd54-a1199b5bf152"
+					(reference "R61")
+					(unit 1)
+				)
+			)
+			(project "BionX_Power_Control"
+				(path "/92d6b5ac-b145-4765-bbcf-30eb42178785"
+					(reference "R61")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(label "Q1_G"
+		(at 154.94 69.85 90)
+		(effects
+			(font
+				(size 1 1)
+			)
+			(justify left bottom)
+		)
+		(uuid "93858f7c-8d41-4ea8-afc4-7f8dcb9ef5d0")
+	)
+	(label "MAIN_GATE"
+		(at 154.94 77.47 270)
+		(effects
+			(font
+				(size 1 1)
+			)
+			(justify right bottom)
+		)
+		(uuid "b4d674e8-2b81-4fde-ab1c-c2123752295e")
+	)
+
+	(text "R61 : 0 ohm en série sur la grille de Q1 (audit point 16). Elle coupe la boucle grille Q1 - grille Q2 ; monter 2,2 à 10 ohm si oscillation à la commutation. Pas de place pour Q2 (grille sous le boîtier TOLL)."
+		(exclude_from_sim no)
+		(at 150 64 0)
+		(effects
+			(font
+				(size 1.0 1.0)
+			)
+			(justify left bottom)
+		)
+		(uuid "b1a6d93d-44c9-4e0f-bd54-2eb117ec6316")
+	)
+	(wire
+		(pts
+			(xy 260.35 52.07) (xy 260.35 57.15)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0444e2d6-c5ef-41d5-a089-afe0f4d4c211")
 	)
 	(sheet_instances
 		(path "/"

@@ -1841,16 +1841,6 @@
 	)
 	(wire
 		(pts
-			(xy 62.23 121.92) (xy 54.61 121.92)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "ca17d6d8-d4ea-4d2b-aa2a-bc3425a09f91")
-	)
-	(wire
-		(pts
 			(xy 134.62 119.38) (xy 134.62 124.46)
 		)
 		(stroke
@@ -2808,6 +2798,87 @@
 			(project "BionX_Power_Control"
 				(path "/e3518469-2023-4ad5-b1bd-81745f6fca11/eff855db-d146-4176-bf78-2d134189630f"
 					(reference "#PWR040")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:VDD")
+		(at 60.96 130.81 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board no)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "b3d3f486-44e0-4874-aa03-c75ab4641b0b")
+		(property "Reference" "#PWR127"
+			(at 63.96 127.81 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1 1)
+				)
+			)
+		)
+		(property "Value" "PWR_3V3"
+			(at 60.96 127.81 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1 1)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 60.96 130.81 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1 1)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 60.96 130.81 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 60.96 130.81 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "c0e7756c-77c4-42c2-a6f2-ccf93017bef4")
+		)
+		(instances
+			(project "bionxHW"
+				(path "/00b756a7-975b-4f5a-95d6-4519feedeb50/1099941e-a455-4ae0-a26b-55d7edd7db02/eff855db-d146-4176-bf78-2d134189630f"
+					(reference "#PWR127")
+					(unit 1)
+				)
+			)
+			(project "BionX_Power_Control"
+				(path "/e3518469-2023-4ad5-b1bd-81745f6fca11/eff855db-d146-4176-bf78-2d134189630f"
+					(reference "#PWR127")
 					(unit 1)
 				)
 			)
@@ -4931,6 +5002,255 @@
 				)
 			)
 		)
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 58.42 121.92 90)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "ff66cf09-f88e-45bd-b77a-8ac65f4fe68a")
+		(property "Reference" "R60"
+			(at 58.42 118.12 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1 1)
+				)
+			)
+		)
+		(property "Value" "10k"
+			(at 58.42 125.73 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1 1)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
+			(at 58.42 121.92 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1 1)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 58.42 121.92 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 58.42 121.92 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "0402WGF1002TCE"
+			(at 58.42 121.92 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C25744"
+			(at 58.42 121.92 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "16552bc8-9211-47a2-b5aa-5523f262ac55")
+		)
+		(pin "2"
+			(uuid "5e335efd-8843-41f9-8e2c-1244af71c434")
+		)
+		(instances
+			(project "bionxHW"
+				(path "/00b756a7-975b-4f5a-95d6-4519feedeb50/1099941e-a455-4ae0-a26b-55d7edd7db02/eff855db-d146-4176-bf78-2d134189630f"
+					(reference "R60")
+					(unit 1)
+				)
+			)
+			(project "BionX_Power_Control"
+				(path "/e3518469-2023-4ad5-b1bd-81745f6fca11/eff855db-d146-4176-bf78-2d134189630f"
+					(reference "R60")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C")
+		(at 60.96 134.62 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "0b2b423b-8ad5-4bb2-9e5f-6322a2c760d1")
+		(property "Reference" "C40"
+			(at 64.77 132.08 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1 1)
+				)
+			)
+		)
+		(property "Value" "100n / 16V X7R"
+			(at 64.77 138.43 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1 1)
+				)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
+			(at 60.96 134.62 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1 1)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 60.96 134.62 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 60.96 134.62 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "CL05B104KO5NNNC"
+			(at 60.96 134.62 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C1525"
+			(at 60.96 134.62 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "c8e35db6-38a6-41d5-8d1e-fd94508abf5d")
+		)
+		(pin "2"
+			(uuid "8d97dcb1-27af-4001-a6da-452062bfbaf4")
+		)
+		(instances
+			(project "bionxHW"
+				(path "/00b756a7-975b-4f5a-95d6-4519feedeb50/1099941e-a455-4ae0-a26b-55d7edd7db02/eff855db-d146-4176-bf78-2d134189630f"
+					(reference "C40")
+					(unit 1)
+				)
+			)
+			(project "BionX_Power_Control"
+				(path "/e3518469-2023-4ad5-b1bd-81745f6fca11/eff855db-d146-4176-bf78-2d134189630f"
+					(reference "C40")
+					(unit 1)
+				)
+			)
+			(project "BionX_Power_Control"
+				(path "/e3518469-2023-4ad5-b1bd-81745f6fca11/eff855db-d146-4176-bf78-2d134189630f"
+					(reference "C40")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(label "STB_RC"
+		(at 60.96 138.43 270)
+		(effects
+			(font
+				(size 1 1)
+			)
+			(justify right bottom)
+		)
+		(uuid "9e25e036-bc89-44e2-a201-52cbf2b25040")
+	)
+	(label "STB_RC"
+		(at 62.23 121.92 90)
+		(effects
+			(font
+				(size 1 1)
+			)
+			(justify left bottom)
+		)
+		(uuid "1551e7b2-6fa8-4f0f-ae8d-850a1af91962")
+	)
+	(text "R60 + C40 : filtre RC sur STB (tau 1 ms). L'impulsion basse de 60 µs de GPIO6 au démarrage ne fait plus sortir le TCAN3413 de veille (audit point 36). Passage en mode normal retardé d'environ 3 ms."
+		(exclude_from_sim no)
+		(at 30 160 0)
+		(effects
+			(font
+				(size 1.0 1.0)
+			)
+			(justify left bottom)
+		)
+		(uuid "1fbb527c-37cb-4c89-a3e2-cd3e9c1f4b7f")
 	)
 	(sheet_instances
 		(path "/"

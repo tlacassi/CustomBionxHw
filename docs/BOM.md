@@ -131,6 +131,8 @@ Toutes les pièces ajoutées sont **Basic**, sauf le connecteur, soudé à la ma
 | C3, C14 / C4, C15 | Bucks : 1 µF 0402 et 100 nF 0402 50 V contre les broches | C52923, C307331 |
 | Q9 | MMBT3904, capteur de température du TPS48111 | C20526 |
 | R58, R59 | 1 kΩ 0402 en série sur FLT_I et FLT_T | C11702 |
+| R60, C40 | 10 kΩ 0402 et 100 nF 0402 16 V : filtre RC sur STB du TCAN3413 | C25744, C1525 |
+| R61 | 0 Ω 0402 en série sur la grille de Q1 | C17168 |
 | D1 | PESD1CAN : **non monté** (empreinte gardée) | — |
 
 Autres corrections (point 21 de l'audit) :
